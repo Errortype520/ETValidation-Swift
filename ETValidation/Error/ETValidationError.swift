@@ -1,6 +1,6 @@
 //
 //  ETValidationError.swift
-//  ETValidation_test
+//  ETValidation
 //
 //  Copyright (c) 2014 Joe Burgess
 //
