@@ -41,7 +41,7 @@ class ETValidationComponentBoolean : ETValidationComponent {
     *
     *  @return Validation Component
     */
-    init (delegate:protocol<ETValidationProtocol>, validationKey:String, requiredBool:Bool) {
+    init <T where T : ETValidationProtocol>(delegate: T, validationKey:String, requiredBool:Bool) {
         super.init(delegate: delegate, validationKey: validationKey)
         self.requiredBool = requiredBool
     }
@@ -59,7 +59,7 @@ class ETValidationComponentBoolean : ETValidationComponent {
         // Get the value using the keypath
         let rawValue:AnyObject! = (self.delegate as AnyObject).valueForKeyPath(self.valKey)
         // Check if raw value is a Boolean
-        if ( rawValue is Bool ) {
+        if ( !(rawValue is Bool) ) {
             // Return an error as raw value should be a boolean
             return ETValidationError(control: self.delegate, message: "Bool evaluation requires BOOL value.")
         }

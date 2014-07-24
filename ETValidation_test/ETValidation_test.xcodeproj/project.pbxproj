@@ -18,6 +18,7 @@
 		D8E6BD4B197C3E0200749875 /* ETValidationComponentBoolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD4A197C3E0200749875 /* ETValidationComponentBoolean.swift */; };
 		D8E6BD4D197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD4C197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift */; };
 		D8E6BD51197DFD3000749875 /* ETValidationComponentRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD50197DFD3000749875 /* ETValidationComponentRegex.swift */; };
+		D8E6BD54197F359900749875 /* UIView+ETValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD53197F359900749875 /* UIView+ETValidation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		D8E6BD4A197C3E0200749875 /* ETValidationComponentBoolean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentBoolean.swift; sourceTree = "<group>"; };
 		D8E6BD4C197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentCharacterLimit.swift; sourceTree = "<group>"; };
 		D8E6BD50197DFD3000749875 /* ETValidationComponentRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentRegex.swift; sourceTree = "<group>"; };
+		D8E6BD53197F359900749875 /* UIView+ETValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ETValidation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		D84FF582197B4FDF00F3A417 /* ETValidation */ = {
 			isa = PBXGroup;
 			children = (
+				D8E6BD52197F356E00749875 /* Extensions */,
 				D84FF588197B51EB00F3A417 /* Protocol */,
 				D8E6BD47197C374400749875 /* Error */,
 				D84FF584197B509300F3A417 /* Form */,
@@ -166,6 +169,14 @@
 				D8E6BD48197C381900749875 /* ETValidationError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		D8E6BD52197F356E00749875 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D8E6BD53197F359900749875 /* UIView+ETValidation.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8E6BD49197C381900749875 /* ETValidationError.swift in Sources */,
+				D8E6BD54197F359900749875 /* UIView+ETValidation.swift in Sources */,
 				D8508A7919735A55004DFD4A /* ViewController.swift in Sources */,
 				D8E6BD51197DFD3000749875 /* ETValidationComponentRegex.swift in Sources */,
 				D8E6BD4B197C3E0200749875 /* ETValidationComponentBoolean.swift in Sources */,

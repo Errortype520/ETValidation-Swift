@@ -43,7 +43,7 @@ class ETValidationComponentCharacterLimit : ETValidationComponent {
     *
     *  @return Character Limit Validation component
     */
-    init(delegate: ETValidationProtocol, validationKey: String, minCharacters : Int = 0, maxCharacters : Int = Int.max) {
+    init <T where T : ETValidationProtocol>(delegate: T, validationKey: String, minCharacters : Int = 0, maxCharacters : Int = Int.max) {
         super.init(delegate: delegate, validationKey: validationKey);
         self.minCharacters = minCharacters;
         self.maxCharacters = maxCharacters;
@@ -62,7 +62,7 @@ class ETValidationComponentCharacterLimit : ETValidationComponent {
         // Get the value using the keypath
         let rawValue:AnyObject! = (self.delegate as AnyObject).valueForKeyPath(self.valKey)
         // Check if raw value is a Boolean
-        if ( rawValue is String ) {
+        if ( !(rawValue is String) ) {
             // Return an error as raw value should be a boolean
             return ETValidationError(control: self.delegate, message: "Character Limit Validation requires value to be string.")
         }

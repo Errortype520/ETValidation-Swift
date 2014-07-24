@@ -24,18 +24,56 @@
 
 import UIKit
 
+//var sharedObserverSelector : Selector = "validationComponents"
+//var sharedObserversKey : CConstVoidPointer = &sharedObserverSelector
+
+var key: Void?
+
+extension UIView : ETValidationProtocol {
+    var validationComponents : Array<ETValidationComponent> {
+        get { return objc_getAssociatedObject(self, &key) as Array<ETValidationComponent> }
+        set { objc_setAssociatedObject(self, &key, newValue, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC)) }
+    }
+}
+
+
+
 class ViewController: UIViewController {
-                            
+    
+    // MARK: - View Management
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.testValidation()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    // MARK: - Individual Component Validation
+    
+    func testValidation() {
+        self.testCharacterLimitComponent()
     }
-
-
+    
+    func testCharacterLimitComponent() {
+        
+        var testLabel:UILabel = UILabel(frame: CGRectZero)
+        var component:ETValidationComponent = ETValidationComponentCharacterLimit(delegate: testLabel, validationKey: "text", minCharacters: 1, maxCharacters: 10)
+        testLabel.validationComponents = [component]
+        
+        println("+------------------------------------------")
+        println(" Character Limit");
+        println("+------------------------------------------")
+        
+        testLabel.text = ""
+        println("Text: [empty]  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "Text is too long"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "Test"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        
+        println("+------------------------------------------")
+        
+    }
 }
 

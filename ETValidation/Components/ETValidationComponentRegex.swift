@@ -41,7 +41,7 @@ class ETValidationComponentRegex : ETValidationComponent {
     *
     *  @return Validation component requiring regex
     */
-    init(delegate: ETValidationProtocol, validationKey: String, pattern:String) {
+    init <T where T : ETValidationProtocol>(delegate: T, validationKey: String, pattern:String) {
         super.init(delegate: delegate, validationKey: validationKey)
         self.pattern = pattern
     }
@@ -59,13 +59,20 @@ class ETValidationComponentRegex : ETValidationComponent {
         // Get the value using the keypath
         let rawValue:AnyObject! = (self.delegate as AnyObject).valueForKeyPath(self.valKey)
         // Check if raw value is a Boolean
-        if ( rawValue is String ) {
+        if ( !(rawValue is String) ) {
             // Return an error as raw value should be a boolean
             return ETValidationError(control: self.delegate, message: "Regex Validation requires value to be string.")
         }
-
-        // TODO: Test REGEX
         
+        // Create the NSPredicate
+        let value:String = rawValue as String;
+        let regex:NSPredicate = NSPredicate(format: "SELF MATCHES %@", self.pattern);
+        // Validate the regex component
+        if ( !regex.evaluateWithObject(value) ) {
+            return ETValidationError(control: self.delegate, message: "Does not meet regular expression.");
+        }
+        
+        // Passed validation
         return nil
     }
     

@@ -41,7 +41,7 @@ class ETValidationComponent : NSObject {
     *
     *  @return Validation Component
     */
-    init (delegate:ETValidationProtocol, validationKey:String) {
+    init <T where T : ETValidationProtocol>(delegate: T, validationKey:String) {
         self.delegate = delegate
         self.valKey = validationKey
     }
