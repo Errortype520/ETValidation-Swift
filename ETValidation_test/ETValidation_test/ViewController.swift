@@ -23,6 +23,7 @@
 //  THE SOFTWARE.
 
 import UIKit
+import ObjectiveC
 
 //var sharedObserverSelector : Selector = "validationComponents"
 //var sharedObserversKey : CConstVoidPointer = &sharedObserverSelector
@@ -52,10 +53,50 @@ class ViewController: UIViewController {
     // MARK: - Individual Component Validation
     
     func testValidation() {
-        self.testCharacterLimitComponent()
+        self.testComponentCharLimit()
+        self.testComponentRegex()
+        self.testComponentBoolean()
     }
     
-    func testCharacterLimitComponent() {
+    func testComponentBoolean() {
+    
+        var testSwitch:UISwitch = UISwitch();
+        var component:ETValidationComponent = ETValidationComponentBoolean(delegate: testSwitch, validationKey: "on", requiredBool: true)
+        testSwitch.validationComponents = [component]
+        
+        println("+------------------------------------------")
+        println(" Boolean (Required true)")
+        println("+------------------------------------------")
+        
+        testSwitch.on = false
+        println("Switch: OFF |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testSwitch.on = true
+        println("Switch: ON  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        
+        println("+------------------------------------------")
+    }
+    
+    func testComponentRegex() {
+        
+        var testLabel:UILabel = UILabel(frame: CGRectZero)
+        var component:ETValidationComponent = ETValidationComponentRegex(delegate: testLabel, validationKey: "text", pattern:"[a-zA-Z]+")
+        testLabel.validationComponents = [component]
+        
+        println("+------------------------------------------")
+        println(" Regex ([a-zA-Z]+)")
+        println("+------------------------------------------")
+        
+        testLabel.text = ""
+        println("Text: [empty]  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "#Bad characters"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "Test"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        
+        println("+------------------------------------------")
+    }
+    
+    func testComponentCharLimit() {
         
         var testLabel:UILabel = UILabel(frame: CGRectZero)
         var component:ETValidationComponent = ETValidationComponentCharacterLimit(delegate: testLabel, validationKey: "text", minCharacters: 1, maxCharacters: 10)
