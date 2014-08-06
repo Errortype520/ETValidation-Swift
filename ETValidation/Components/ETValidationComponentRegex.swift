@@ -41,9 +41,9 @@ class ETValidationComponentRegex : ETValidationComponent {
     *
     *  @return Validation component requiring regex
     */
-    init <T where T : ETValidationProtocol>(delegate: T, validationKey: String, pattern:String) {
-        super.init(delegate: delegate, validationKey: validationKey)
+    init <T where T : ETValidationProtocol>(delegate: T, validationKey: String, pattern:String = "") {
         self.pattern = pattern
+        super.init(delegate: delegate, validationKey: validationKey)
     }
     
     /**

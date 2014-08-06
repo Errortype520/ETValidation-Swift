@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D81C69341991AEE0001A264A /* ETValidationPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81C69331991AEE0001A264A /* ETValidationPassword.swift */; };
 		D84FF587197B50D300F3A417 /* ETValidationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF586197B50D300F3A417 /* ETValidationComponent.swift */; };
 		D84FF58A197B51F600F3A417 /* ETValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF589197B51F600F3A417 /* ETValidationProtocol.swift */; };
 		D8508A7719735A55004DFD4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8508A7619735A55004DFD4A /* AppDelegate.swift */; };
@@ -14,11 +15,11 @@
 		D8508A7C19735A55004DFD4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8508A7A19735A55004DFD4A /* Main.storyboard */; };
 		D8508A7E19735A55004DFD4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8508A7D19735A55004DFD4A /* Images.xcassets */; };
 		D8508A8A19735A55004DFD4A /* ETValidation_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8508A8919735A55004DFD4A /* ETValidation_testTests.swift */; };
+		D8BD072A198493350073FA66 /* ETValidationComponentEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD0729198493350073FA66 /* ETValidationComponentEmail.swift */; };
 		D8E6BD49197C381900749875 /* ETValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD48197C381900749875 /* ETValidationError.swift */; };
 		D8E6BD4B197C3E0200749875 /* ETValidationComponentBoolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD4A197C3E0200749875 /* ETValidationComponentBoolean.swift */; };
 		D8E6BD4D197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD4C197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift */; };
 		D8E6BD51197DFD3000749875 /* ETValidationComponentRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD50197DFD3000749875 /* ETValidationComponentRegex.swift */; };
-		D8E6BD54197F359900749875 /* UIView+ETValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD53197F359900749875 /* UIView+ETValidation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D81C69331991AEE0001A264A /* ETValidationPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationPassword.swift; sourceTree = "<group>"; };
 		D84FF586197B50D300F3A417 /* ETValidationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponent.swift; sourceTree = "<group>"; };
 		D84FF589197B51F600F3A417 /* ETValidationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationProtocol.swift; sourceTree = "<group>"; };
 		D8508A7119735A55004DFD4A /* ETValidation_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETValidation_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,11 +45,11 @@
 		D8508A8319735A55004DFD4A /* ETValidation_testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ETValidation_testTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8508A8819735A55004DFD4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8508A8919735A55004DFD4A /* ETValidation_testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETValidation_testTests.swift; sourceTree = "<group>"; };
+		D8BD0729198493350073FA66 /* ETValidationComponentEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentEmail.swift; sourceTree = "<group>"; };
 		D8E6BD48197C381900749875 /* ETValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationError.swift; sourceTree = "<group>"; };
 		D8E6BD4A197C3E0200749875 /* ETValidationComponentBoolean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentBoolean.swift; sourceTree = "<group>"; };
 		D8E6BD4C197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentCharacterLimit.swift; sourceTree = "<group>"; };
 		D8E6BD50197DFD3000749875 /* ETValidationComponentRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentRegex.swift; sourceTree = "<group>"; };
-		D8E6BD53197F359900749875 /* UIView+ETValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ETValidation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +73,6 @@
 		D84FF582197B4FDF00F3A417 /* ETValidation */ = {
 			isa = PBXGroup;
 			children = (
-				D8E6BD52197F356E00749875 /* Extensions */,
 				D84FF588197B51EB00F3A417 /* Protocol */,
 				D8E6BD47197C374400749875 /* Error */,
 				D84FF584197B509300F3A417 /* Form */,
@@ -88,6 +89,8 @@
 				D8E6BD4A197C3E0200749875 /* ETValidationComponentBoolean.swift */,
 				D8E6BD4C197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift */,
 				D8E6BD50197DFD3000749875 /* ETValidationComponentRegex.swift */,
+				D8BD0729198493350073FA66 /* ETValidationComponentEmail.swift */,
+				D81C69331991AEE0001A264A /* ETValidationPassword.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -169,14 +172,6 @@
 				D8E6BD48197C381900749875 /* ETValidationError.swift */,
 			);
 			path = Error;
-			sourceTree = "<group>";
-		};
-		D8E6BD52197F356E00749875 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D8E6BD53197F359900749875 /* UIView+ETValidation.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,11 +274,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8E6BD49197C381900749875 /* ETValidationError.swift in Sources */,
-				D8E6BD54197F359900749875 /* UIView+ETValidation.swift in Sources */,
 				D8508A7919735A55004DFD4A /* ViewController.swift in Sources */,
 				D8E6BD51197DFD3000749875 /* ETValidationComponentRegex.swift in Sources */,
 				D8E6BD4B197C3E0200749875 /* ETValidationComponentBoolean.swift in Sources */,
+				D8BD072A198493350073FA66 /* ETValidationComponentEmail.swift in Sources */,
 				D84FF58A197B51F600F3A417 /* ETValidationProtocol.swift in Sources */,
+				D81C69341991AEE0001A264A /* ETValidationPassword.swift in Sources */,
 				D8E6BD4D197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift in Sources */,
 				D84FF587197B50D300F3A417 /* ETValidationComponent.swift in Sources */,
 				D8508A7719735A55004DFD4A /* AppDelegate.swift in Sources */,

@@ -44,9 +44,9 @@ class ETValidationComponentCharacterLimit : ETValidationComponent {
     *  @return Character Limit Validation component
     */
     init <T where T : ETValidationProtocol>(delegate: T, validationKey: String, minCharacters : Int = 0, maxCharacters : Int = Int.max) {
-        super.init(delegate: delegate, validationKey: validationKey);
         self.minCharacters = minCharacters;
         self.maxCharacters = maxCharacters;
+        super.init(delegate: delegate, validationKey: validationKey);
     }
     
     /**

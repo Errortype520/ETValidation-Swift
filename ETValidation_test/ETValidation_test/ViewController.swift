@@ -23,20 +23,17 @@
 //  THE SOFTWARE.
 
 import UIKit
-import ObjectiveC
 
-//var sharedObserverSelector : Selector = "validationComponents"
-//var sharedObserversKey : CConstVoidPointer = &sharedObserverSelector
-
-var key: Void?
-
+//---------------
+// Subclasses of UIView ignore extension if it is placed in a separate file.
+var sharedObserverSelector : Selector = "validationComponents"
 extension UIView : ETValidationProtocol {
     var validationComponents : Array<ETValidationComponent> {
-        get { return objc_getAssociatedObject(self, &key) as Array<ETValidationComponent> }
-        set { objc_setAssociatedObject(self, &key, newValue, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC)) }
+        get { return objc_getAssociatedObject(self, &sharedObserverSelector) as Array<ETValidationComponent> }
+        set { objc_setAssociatedObject(self, &sharedObserverSelector, newValue, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC)) }
     }
 }
-
+//---------------
 
 
 class ViewController: UIViewController {
@@ -55,12 +52,14 @@ class ViewController: UIViewController {
     func testValidation() {
         self.testComponentCharLimit()
         self.testComponentRegex()
+        self.testComponentEmail()
+        self.testComponentPassword()
         self.testComponentBoolean()
     }
     
     func testComponentBoolean() {
     
-        var testSwitch:UISwitch = UISwitch();
+        var testSwitch:UISwitch = UISwitch()
         var component:ETValidationComponent = ETValidationComponentBoolean(delegate: testSwitch, validationKey: "on", requiredBool: true)
         testSwitch.validationComponents = [component]
         
@@ -72,6 +71,62 @@ class ViewController: UIViewController {
         println("Switch: OFF |  Validated: " + (component.validate() ? "NO" : "YES") )
         testSwitch.on = true
         println("Switch: ON  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        
+        println("+------------------------------------------")
+    }
+    
+    func testComponentPassword() {
+        
+        var testLabel:UILabel = UILabel(frame: CGRectZero)
+        var component:ETValidationComponent = ETValidationPassword(delegate: testLabel, validationKey: "text")
+        testLabel.validationComponents = [component]
+        
+        println("+------------------------------------------")
+        println(" Password Validation")
+        println("+------------------------------------------")
+        
+        testLabel.text = ""
+        println("Text: [empty]  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "test"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "Test"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "Test"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "Test1"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "Test1 #"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "test1#"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "Test##"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "Test1#"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        
+        
+        println("+------------------------------------------")
+    }
+    
+    func testComponentEmail() {
+        
+        var testLabel:UILabel = UILabel(frame: CGRectZero)
+        var component:ETValidationComponent = ETValidationComponentEmail(delegate: testLabel, validationKey: "text")
+        testLabel.validationComponents = [component]
+        
+        println("+------------------------------------------")
+        println(" Email Validation")
+        println("+------------------------------------------")
+        
+        testLabel.text = ""
+        println("Text: [empty]  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "test"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "testtest"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        testLabel.text = "testtest.com"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
+        
         
         println("+------------------------------------------")
     }
@@ -103,7 +158,7 @@ class ViewController: UIViewController {
         testLabel.validationComponents = [component]
         
         println("+------------------------------------------")
-        println(" Character Limit");
+        println(" Character Limit")
         println("+------------------------------------------")
         
         testLabel.text = ""

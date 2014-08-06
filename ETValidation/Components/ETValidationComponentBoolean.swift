@@ -42,8 +42,8 @@ class ETValidationComponentBoolean : ETValidationComponent {
     *  @return Validation Component
     */
     init <T where T : ETValidationProtocol>(delegate: T, validationKey:String, requiredBool:Bool) {
-        super.init(delegate: delegate, validationKey: validationKey)
         self.requiredBool = requiredBool
+        super.init(delegate: delegate, validationKey: validationKey)
     }
     
     /**
