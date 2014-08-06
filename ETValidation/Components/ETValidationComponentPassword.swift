@@ -1,5 +1,5 @@
 //
-//  ETValidationPassword.swift
+//  ETValidationComponentPassword.swift
 //  ETValidation_test
 //
 //  Created by Joseph Burgess on 8/5/14.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ETValidationPassword : ETValidationComponentRegex {
+class ETValidationComponentPassword : ETValidationComponentRegex {
     
     override var pattern : String! {
         set { println("Cannot change pattern on password component. Use Regex component instead.") }

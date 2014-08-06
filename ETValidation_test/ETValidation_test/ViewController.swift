@@ -78,7 +78,7 @@ class ViewController: UIViewController {
     func testComponentPassword() {
         
         var testLabel:UILabel = UILabel(frame: CGRectZero)
-        var component:ETValidationComponent = ETValidationPassword(delegate: testLabel, validationKey: "text")
+        var component:ETValidationComponent = ETValidationComponentPassword(delegate: testLabel, validationKey: "text")
         testLabel.validationComponents = [component]
         
         println("+------------------------------------------")
@@ -122,11 +122,10 @@ class ViewController: UIViewController {
         println("Text: [empty]  |  Validated: " + (component.validate() ? "NO" : "YES") )
         testLabel.text = "test"
         println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
-        testLabel.text = "testtest"
+        testLabel.text = "test@test"
         println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
-        testLabel.text = "testtest.com"
-        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
-        
+        testLabel.text = "test@test.com"
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )        
         
         println("+------------------------------------------")
     }
