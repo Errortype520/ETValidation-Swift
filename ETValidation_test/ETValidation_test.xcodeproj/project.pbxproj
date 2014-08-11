@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D81C69341991AEE0001A264A /* ETValidationComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81C69331991AEE0001A264A /* ETValidationComponentPassword.swift */; };
+		D81C69361992C067001A264A /* ETValidationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81C69351992C067001A264A /* ETValidationForm.swift */; };
 		D84FF587197B50D300F3A417 /* ETValidationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF586197B50D300F3A417 /* ETValidationComponent.swift */; };
 		D84FF58A197B51F600F3A417 /* ETValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FF589197B51F600F3A417 /* ETValidationProtocol.swift */; };
 		D8508A7719735A55004DFD4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8508A7619735A55004DFD4A /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		D81C69331991AEE0001A264A /* ETValidationComponentPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentPassword.swift; sourceTree = "<group>"; };
+		D81C69351992C067001A264A /* ETValidationForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationForm.swift; sourceTree = "<group>"; };
 		D84FF586197B50D300F3A417 /* ETValidationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponent.swift; sourceTree = "<group>"; };
 		D84FF589197B51F600F3A417 /* ETValidationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationProtocol.swift; sourceTree = "<group>"; };
 		D8508A7119735A55004DFD4A /* ETValidation_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETValidation_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,7 @@
 		D84FF584197B509300F3A417 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				D81C69351992C067001A264A /* ETValidationForm.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			files = (
 				D8E6BD49197C381900749875 /* ETValidationError.swift in Sources */,
 				D8508A7919735A55004DFD4A /* ViewController.swift in Sources */,
+				D81C69361992C067001A264A /* ETValidationForm.swift in Sources */,
 				D8E6BD51197DFD3000749875 /* ETValidationComponentRegex.swift in Sources */,
 				D8E6BD4B197C3E0200749875 /* ETValidationComponentBoolean.swift in Sources */,
 				D8BD072A198493350073FA66 /* ETValidationComponentEmail.swift in Sources */,

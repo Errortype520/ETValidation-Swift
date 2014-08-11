@@ -125,7 +125,7 @@ class ViewController: UIViewController {
         testLabel.text = "test@test"
         println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
         testLabel.text = "test@test.com"
-        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )        
+        println("Text: \(testLabel.text)  |  Validated: " + (component.validate() ? "NO" : "YES") )
         
         println("+------------------------------------------")
     }
