@@ -17,6 +17,7 @@
 		D8508A7E19735A55004DFD4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8508A7D19735A55004DFD4A /* Images.xcassets */; };
 		D8508A8A19735A55004DFD4A /* ETValidation_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8508A8919735A55004DFD4A /* ETValidation_testTests.swift */; };
 		D8BD072A198493350073FA66 /* ETValidationComponentEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD0729198493350073FA66 /* ETValidationComponentEmail.swift */; };
+		D8DE15411A57995800015ED9 /* UIView+ETValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE15401A57995800015ED9 /* UIView+ETValidationProtocol.swift */; };
 		D8E6BD49197C381900749875 /* ETValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD48197C381900749875 /* ETValidationError.swift */; };
 		D8E6BD4B197C3E0200749875 /* ETValidationComponentBoolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD4A197C3E0200749875 /* ETValidationComponentBoolean.swift */; };
 		D8E6BD4D197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD4C197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift */; };
@@ -48,6 +49,7 @@
 		D8508A8819735A55004DFD4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8508A8919735A55004DFD4A /* ETValidation_testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETValidation_testTests.swift; sourceTree = "<group>"; };
 		D8BD0729198493350073FA66 /* ETValidationComponentEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentEmail.swift; sourceTree = "<group>"; };
+		D8DE15401A57995800015ED9 /* UIView+ETValidationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ETValidationProtocol.swift"; sourceTree = "<group>"; };
 		D8E6BD48197C381900749875 /* ETValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationError.swift; sourceTree = "<group>"; };
 		D8E6BD4A197C3E0200749875 /* ETValidationComponentBoolean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentBoolean.swift; sourceTree = "<group>"; };
 		D8E6BD4C197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentCharacterLimit.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			children = (
 				D84FF588197B51EB00F3A417 /* Protocol */,
 				D8E6BD47197C374400749875 /* Error */,
+				D8DE153F1A57995800015ED9 /* Extension */,
 				D84FF584197B509300F3A417 /* Form */,
 				D84FF583197B509300F3A417 /* Components */,
 			);
@@ -169,6 +172,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D8DE153F1A57995800015ED9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D8DE15401A57995800015ED9 /* UIView+ETValidationProtocol.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		D8E6BD47197C374400749875 /* Error */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +237,7 @@
 				TargetAttributes = {
 					D8508A7019735A55004DFD4A = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = S942228ZXT;
 					};
 					D8508A8219735A55004DFD4A = {
 						CreatedOnToolsVersion = 6.0;
@@ -282,6 +294,7 @@
 				D8E6BD51197DFD3000749875 /* ETValidationComponentRegex.swift in Sources */,
 				D8E6BD4B197C3E0200749875 /* ETValidationComponentBoolean.swift in Sources */,
 				D8BD072A198493350073FA66 /* ETValidationComponentEmail.swift in Sources */,
+				D8DE15411A57995800015ED9 /* UIView+ETValidationProtocol.swift in Sources */,
 				D84FF58A197B51F600F3A417 /* ETValidationProtocol.swift in Sources */,
 				D81C69341991AEE0001A264A /* ETValidationComponentPassword.swift in Sources */,
 				D8E6BD4D197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift in Sources */,
@@ -402,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ETValidation_test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -413,6 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ETValidation_test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

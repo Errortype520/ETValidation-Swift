@@ -66,7 +66,7 @@ class ETValidationComponentRegex : ETValidationComponent {
         
         // Create the NSPredicate
         let value:String = rawValue as String;
-        let regex:NSPredicate = NSPredicate(format: "SELF MATCHES %@", self.pattern);
+        let regex:NSPredicate = NSPredicate(format: "SELF MATCHES %@", self.pattern)!;
         // Validate the regex component
         if ( !regex.evaluateWithObject(value) ) {
             return ETValidationError(control: self.delegate, message: "Does not meet regular expression.");
