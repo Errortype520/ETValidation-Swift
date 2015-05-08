@@ -65,7 +65,7 @@ class ETValidationComponentBoolean : ETValidationComponent {
         }
         
         // Passed initial validation, let's see if we match our required value
-        var actualBool:Bool = rawValue as Bool
+        var actualBool:Bool = rawValue as! Bool
         // if the actual bool does not match required value
         if (actualBool != self.requiredBool) {
             return ETValidationError(control: self.delegate, message: "Boolean does not meet required value.")

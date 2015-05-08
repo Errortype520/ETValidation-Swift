@@ -68,7 +68,7 @@ class ETValidationComponentCharacterLimit : ETValidationComponent {
         }
         
         // The number of characters in our string
-        var numCharacters:Int = countElements(rawValue as String);
+        var numCharacters:Int = count(rawValue as! String);
         
         // If the number of characters is out of range
         if (numCharacters < self.minCharacters || numCharacters > self.maxCharacters) {
