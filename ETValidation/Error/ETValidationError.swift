@@ -24,12 +24,12 @@
 
 import Foundation
 
-class ETValidationError : NSObject {
+class ETValidationError {
     
     // MARK: - Properties
     
-    var control : protocol<ETValidationProtocol>?     // The control that originated the error
-    var message : String                              // The error message generated on error
+    var control : ETValidationProtocol?     // The control that originated the error
+    var message : String                    // The error message generated on error
     
     
     // MARK: - Instance methods
@@ -42,7 +42,7 @@ class ETValidationError : NSObject {
     *
     *  @return Validation error
     */
-    init (control:protocol<ETValidationProtocol>, message:String) {
+    init (control:ETValidationProtocol, message:String) {
         self.control = control
         self.message = message
     }

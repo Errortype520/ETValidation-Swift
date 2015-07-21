@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ETValidationForm<T where T:ETValidationProtocol> : NSObject {
+class ETValidationForm {
     
     // MARK: Properties
     
-    var validationControls : Array<T>               // The controls that require validation
-    var validationErrors : Array<ETValidationError> // The errors reported the last time the form tried to validate
+    var validationControls : Array<ETValidationProtocol>    // The controls that require validation
+    var validationErrors : Array<ETValidationError>         // The errors reported the last time the form tried to validate
     
     
     
@@ -26,7 +26,7 @@ class ETValidationForm<T where T:ETValidationProtocol> : NSObject {
     *
     *  @return Validation form
     */
-    convenience init (controls:T...) {
+    convenience init (controls:ETValidationProtocol...) {
         self.init(controls:controls)
     }
     
@@ -37,7 +37,7 @@ class ETValidationForm<T where T:ETValidationProtocol> : NSObject {
     *
     *  @return Validation Form
     */
-    init (controls:Array<T>) {
+    init (controls:Array<ETValidationProtocol>) {
         self.validationControls = controls
         self.validationErrors = []
     }
@@ -45,13 +45,12 @@ class ETValidationForm<T where T:ETValidationProtocol> : NSObject {
     
     // MARK: - Add / Remove Controls
     
-    func addControl(control:T) {
-        self.validationControls.append(control);
+    func addControl(control:ETValidationProtocol) {
+        self.validationControls.append(control)
     }
     
-    // TODO: Swift limitation on array of protocol type prevents easily removing controls.
-    func removeControl(control:T) {
-//        if let x = find(self.validationControls, control) {
+    func removeControl(control:ETValidationProtocol) {
+//        if let x = self.validationControls.indexOf(control) {
 //            self.validationControls.removeAtIndex(x)
 //        }
     }
@@ -66,11 +65,11 @@ class ETValidationForm<T where T:ETValidationProtocol> : NSObject {
         // Validate each component in validation controls
         for control in self.validationControls {
             // Get the validation components from the control
-            var validationComponents = control.validationComponents
+            let validationComponents = control.validationComponents
             // Validate all components in control
             for component in validationComponents {
                 // Get the error (if any) from validation
-                var error = component.validate()
+                let error = component.validate()
                 // if there is an error in validation
                 if ((error) != nil) {
                     // Append the error to our validation errors

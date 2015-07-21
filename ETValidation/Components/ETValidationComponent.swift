@@ -24,11 +24,11 @@
 
 import Foundation
 
-class ETValidationComponent : NSObject {
+class ETValidationComponent {
     
     // MARK: - Properties
     
-    var delegate :protocol<ETValidationProtocol, NSObjectProtocol>
+    var delegate : ETValidationProtocol
     var valKey : String
     
     // MARK: - Instance methods
@@ -41,7 +41,7 @@ class ETValidationComponent : NSObject {
     *
     *  @return Validation Component
     */
-    init <T where T : ETValidationProtocol>(delegate: T, validationKey:String) {
+    init (delegate: ETValidationProtocol, validationKey:String) {
         self.delegate = delegate
         self.valKey = validationKey
     }

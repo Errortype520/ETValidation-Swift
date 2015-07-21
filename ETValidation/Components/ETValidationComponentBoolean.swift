@@ -28,7 +28,7 @@ class ETValidationComponentBoolean : ETValidationComponent {
     
     // MARK: - Properties
     
-    var requiredBool : Bool!
+    var requiredBool : Bool
     
     
     // MARK: - Instance methods
@@ -41,7 +41,7 @@ class ETValidationComponentBoolean : ETValidationComponent {
     *
     *  @return Validation Component
     */
-    init <T where T : ETValidationProtocol>(delegate: T, validationKey:String, requiredBool:Bool) {
+    init (delegate: ETValidationProtocol, validationKey:String, requiredBool:Bool) {
         self.requiredBool = requiredBool
         super.init(delegate: delegate, validationKey: validationKey)
     }
@@ -57,18 +57,19 @@ class ETValidationComponentBoolean : ETValidationComponent {
         if let superError:ETValidationError = super.validate() { return superError }
 
         // Get the value using the keypath
-        let rawValue:AnyObject! = (self.delegate as AnyObject).valueForKeyPath(self.valKey)
-        // Check if raw value is a Boolean
-        if ( !(rawValue is Bool) ) {
-            // Return an error as raw value should be a boolean
-            return ETValidationError(control: self.delegate, message: "Bool evaluation requires BOOL value.")
-        }
-        
-        // Passed initial validation, let's see if we match our required value
-        var actualBool:Bool = rawValue as! Bool
-        // if the actual bool does not match required value
-        if (actualBool != self.requiredBool) {
-            return ETValidationError(control: self.delegate, message: "Boolean does not meet required value.")
+        if let rawValue:AnyObject = (self.delegate as? AnyObject)?.valueForKeyPath(self.valKey) {
+            // Check if raw value is a Boolean
+            if ( !(rawValue is Bool) ) {
+                // Return an error as raw value should be a boolean
+                return ETValidationError(control: self.delegate, message: "Bool evaluation requires BOOL value.")
+            }
+            
+            // Passed initial validation, let's see if we match our required value
+            let actualBool:Bool = rawValue as! Bool
+            // if the actual bool does not match required value
+            if (actualBool != self.requiredBool) {
+                return ETValidationError(control: self.delegate, message: "Boolean does not meet required value.")
+            }
         }
         
         // No errors found

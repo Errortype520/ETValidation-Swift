@@ -10,8 +10,8 @@ import Foundation
 
 class ETValidationComponentEmail : ETValidationComponentRegex {
     
-    override var pattern : String! {
-        set { println("Cannot change pattern on email component. Use Regex component instead.") }
+    override var pattern : String {
+        set { print("Cannot change pattern on email component. Use Regex component instead.", appendNewline: false) }
         get {
                 // Use RFC-2822 email validation
                 // Xcode 6 beta 4 has a bug concatenating strings, this is a work around
@@ -25,18 +25,6 @@ class ETValidationComponentEmail : ETValidationComponentRegex {
                 
                 return  emailPattern
         }
-    }
-    
-    /**
-    *  Validation component to validate email address
-    *
-    *  @param delegate The control that owns this component
-    *  @param valKey   The key path with the value to evaluate
-    *
-    *  @return Validation Component
-    */
-    init <T where T : ETValidationProtocol>(delegate: T, validationKey:String) {
-        super.init(delegate: delegate, validationKey: validationKey)
     }
     
 }

@@ -10,8 +10,8 @@ import Foundation
 
 class ETValidationComponentPassword : ETValidationComponentRegex {
     
-    override var pattern : String! {
-        set { println("Cannot change pattern on password component. Use Regex component instead.") }
+    override var pattern : String {
+        set { print("Cannot change pattern on password component. Use Regex component instead.", appendNewline: false) }
         get {
             // ^                 # start-of-string
             // (?=.*[0-9])       # a digit must occur at least once
@@ -23,18 +23,6 @@ class ETValidationComponentPassword : ETValidationComponentRegex {
             // $                 # end-of-string
             return "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!?])(?=\\S+$).{6,}$"
         }
-    }
-    
-    /**
-    *  Validation component to validate passwords
-    *
-    *  @param delegate The control that owns this component
-    *  @param valKey   The key path with the value to evaluate
-    *
-    *  @return Validation Component
-    */
-    init <T where T : ETValidationProtocol>(delegate: T, validationKey:String) {
-        super.init(delegate: delegate, validationKey: validationKey)
     }
     
 }

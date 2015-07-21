@@ -43,7 +43,7 @@ class ETValidationComponentCharacterLimit : ETValidationComponent {
     *
     *  @return Character Limit Validation component
     */
-    init <T where T : ETValidationProtocol>(delegate: T, validationKey: String, minCharacters : Int = 0, maxCharacters : Int = Int.max) {
+    init (delegate: ETValidationProtocol, validationKey: String, minCharacters : Int = 0, maxCharacters : Int = Int.max) {
         self.minCharacters = minCharacters;
         self.maxCharacters = maxCharacters;
         super.init(delegate: delegate, validationKey: validationKey);
@@ -60,19 +60,20 @@ class ETValidationComponentCharacterLimit : ETValidationComponent {
         if let superError:ETValidationError = super.validate() { return superError }
         
         // Get the value using the keypath
-        let rawValue:AnyObject! = (self.delegate as AnyObject).valueForKeyPath(self.valKey)
-        // Check if raw value is a Boolean
-        if ( !(rawValue is String) ) {
-            // Return an error as raw value should be a boolean
-            return ETValidationError(control: self.delegate, message: "Character Limit Validation requires value to be string.")
-        }
-        
-        // The number of characters in our string
-        var numCharacters:Int = count(rawValue as! String);
-        
-        // If the number of characters is out of range
-        if (numCharacters < self.minCharacters || numCharacters > self.maxCharacters) {
-            return ETValidationError(control: self.delegate, message: "Does not meet character limit.");
+        if let rawValue:AnyObject = (self.delegate as AnyObject).valueForKeyPath(self.valKey) {
+            // Check if raw value is a Boolean
+            if ( !(rawValue is String) ) {
+                // Return an error as raw value should be a boolean
+                return ETValidationError(control: self.delegate, message: "Character Limit Validation requires value to be string.")
+            }
+            
+            // The number of characters in our string
+            let numCharacters:Int = (rawValue as! String).characters.count;
+            
+            // If the number of characters is out of range
+            if (numCharacters < self.minCharacters || numCharacters > self.maxCharacters) {
+                return ETValidationError(control: self.delegate, message: "Does not meet character limit.");
+            }
         }
         
         // Passed validation
