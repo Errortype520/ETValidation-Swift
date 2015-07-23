@@ -43,10 +43,10 @@ class ETValidationComponentCharacterLimit : ETValidationComponent {
     *
     *  @return Character Limit Validation component
     */
-    init (delegate: ETValidationProtocol, validationKey: String, minCharacters : Int = 0, maxCharacters : Int = Int.max) {
-        self.minCharacters = minCharacters;
-        self.maxCharacters = maxCharacters;
-        super.init(delegate: delegate, validationKey: validationKey);
+    init (delegate: ETValidationProtocol, validationKey: String, minCharacters : Int = 0, maxCharacters : Int = Int.max, message : String = "Does not meet character limit.") {
+        self.minCharacters = minCharacters
+        self.maxCharacters = maxCharacters
+        super.init(delegate: delegate, validationKey: validationKey, message:message)
     }
     
     /**
@@ -54,29 +54,23 @@ class ETValidationComponentCharacterLimit : ETValidationComponent {
     *
     *  @return ETValidationError or nil
     */
-    override func validate() -> ETValidationError? {
+    override func validate() -> [ETValidationError] {
         
-        // See if super validation generated an error which should be resolved first
-        if let superError:ETValidationError = super.validate() { return superError }
+        var errors = super.validate()
         
-        // Get the value using the keypath
-        if let rawValue:AnyObject = (self.delegate as AnyObject).valueForKeyPath(self.valKey) {
-            // Check if raw value is a Boolean
-            if ( !(rawValue is String) ) {
-                // Return an error as raw value should be a boolean
-                return ETValidationError(control: self.delegate, message: "Character Limit Validation requires value to be string.")
-            }
-            
-            // The number of characters in our string
-            let numCharacters:Int = (rawValue as! String).characters.count;
-            
-            // If the number of characters is out of range
-            if (numCharacters < self.minCharacters || numCharacters > self.maxCharacters) {
-                return ETValidationError(control: self.delegate, message: "Does not meet character limit.");
-            }
+        guard let value = (self.delegate as AnyObject).valueForKeyPath(self.valKey) as? String else {
+            errors.append( ETValidationError(control: self.delegate, message: "Character Limit Validation requires value to be string.") )
+            return errors
         }
         
-        // Passed validation
-        return nil
+        // The number of characters in our string
+        let numCharacters:Int = value.characters.count;
+
+        // If the number of characters is out of range
+        if (numCharacters < self.minCharacters || numCharacters > self.maxCharacters) {
+            errors.append(ETValidationError(control: self.delegate, message: self.message) )
+        }
+        
+        return errors
     }
 }

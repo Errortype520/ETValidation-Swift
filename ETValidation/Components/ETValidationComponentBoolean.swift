@@ -41,9 +41,9 @@ class ETValidationComponentBoolean : ETValidationComponent {
     *
     *  @return Validation Component
     */
-    init (delegate: ETValidationProtocol, validationKey:String, requiredBool:Bool) {
+    init (delegate: ETValidationProtocol, validationKey:String, requiredBool:Bool, message:String = "Boolean does not meet required value.") {
         self.requiredBool = requiredBool
-        super.init(delegate: delegate, validationKey: validationKey)
+        super.init(delegate: delegate, validationKey: validationKey, message:message)
     }
     
     /**
@@ -51,28 +51,19 @@ class ETValidationComponentBoolean : ETValidationComponent {
     *
     *  @return ETValidationError or nil
     */
-    override func validate() -> ETValidationError? {
+    override func validate() -> [ETValidationError] {
         
-        // See if super validation generated an error which should be resolved first
-        if let superError:ETValidationError = super.validate() { return superError }
-
-        // Get the value using the keypath
-        if let rawValue:AnyObject = (self.delegate as? AnyObject)?.valueForKeyPath(self.valKey) {
-            // Check if raw value is a Boolean
-            if ( !(rawValue is Bool) ) {
-                // Return an error as raw value should be a boolean
-                return ETValidationError(control: self.delegate, message: "Bool evaluation requires BOOL value.")
-            }
-            
-            // Passed initial validation, let's see if we match our required value
-            let actualBool:Bool = rawValue as! Bool
-            // if the actual bool does not match required value
-            if (actualBool != self.requiredBool) {
-                return ETValidationError(control: self.delegate, message: "Boolean does not meet required value.")
-            }
+        var errors = super.validate()
+        
+        guard let value = (self.delegate as AnyObject).valueForKeyPath(self.valKey) as? Bool else {
+            errors.append( ETValidationError(control: self.delegate, message: "Bool evaluation requires BOOL value.") )
+            return errors
         }
         
-        // No errors found
-        return nil
+        if value != self.requiredBool {
+            errors.append(ETValidationError(control: self.delegate, message: self.message) )
+        }
+        
+        return errors
     }
 }

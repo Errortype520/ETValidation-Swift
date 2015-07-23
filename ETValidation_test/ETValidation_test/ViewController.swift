@@ -28,13 +28,13 @@ class ViewController: UIViewController {
     
     // MARK - Form 
     
-    var form:ETValidationForm<ETValidationProtocol>!
+    var form:ETValidationForm?
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var txtCharacterLimit: UITextField!
-    @IBOutlet weak var txtPasword: UITextField!
-    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtCharacterLimit: UITextField?
+    @IBOutlet weak var txtPasword: UITextField?
+    @IBOutlet weak var txtEmail: UITextField?
     
     // MARK: - View Management
     
@@ -51,18 +51,19 @@ class ViewController: UIViewController {
     // MARK: - Form Validation (IBOutlets)
     
     func testFormValidation() {
+        guard let txtCharacterLimit = self.txtCharacterLimit, txtEmail = self.txtEmail, txtPasword = self.txtPasword else { return }
         
         // Add a character limit validation component to the character limit text field
-        var txtCharacterLimitComponent:ETValidationComponent = ETValidationComponentCharacterLimit(delegate:self.txtCharacterLimit, validationKey:"text", minCharacters: 1, maxCharacters: 10)
-        self.txtCharacterLimit.validationComponents = [txtCharacterLimitComponent]
+        let txtCharacterLimitComponent:ETValidationComponent = ETValidationComponentCharacterLimit(delegate:txtCharacterLimit, validationKey:"text", minCharacters: 1, maxCharacters: 10)
+        txtCharacterLimit.validationComponents = [txtCharacterLimitComponent]
         
         // Add a email validation component to the email text field
-        var txtEmailComponent:ETValidationComponent = ETValidationComponentEmail(delegate: self.txtEmail, validationKey: "text")
-        self.txtEmail.validationComponents = [txtEmailComponent]
+        let txtEmailComponent:ETValidationComponent = ETValidationComponentEmail(delegate: txtEmail, validationKey: "text")
+        txtEmail.validationComponents = [txtEmailComponent]
         
         // Add password validation component to the password text field
-        var txtPasswordComponent:ETValidationComponent = ETValidationComponentPassword(delegate: self.txtPasword, validationKey: "text")
-        self.txtPasword.validationComponents = [txtPasswordComponent]
+        let txtPasswordComponent:ETValidationComponent = ETValidationComponentPassword(delegate: txtPasword, validationKey: "text")
+        txtPasword.validationComponents = [txtPasswordComponent]
         
         // Create a form with that will validate these components
         self.form = ETValidationForm(controls: txtCharacterLimit, txtEmail, txtPasword)
@@ -74,12 +75,12 @@ class ViewController: UIViewController {
     @IBAction func handleTestFormValidation(sender:UIButton?) {
         
         // Validate the form
-        self.form.validateForm({ () in
-            println("Form Validation Success!")
+        self.form?.validateForm({ () in
+            print("Form Validation Success!")
         }, failure: { (errors) in
-            println("Form Validation Failure!")
+            print("Form Validation Failure!")
             for error in errors {
-                println("Control: \(error.control)  | Message:  \(error.message)")
+                print("Control: \(error.control)  | Message:  \(error.message)")
             }
         })
     }
@@ -96,115 +97,115 @@ class ViewController: UIViewController {
     
     func testComponentBoolean() {
     
-        var testSwitch:UISwitch = UISwitch()
-        var component:ETValidationComponent = ETValidationComponentBoolean(delegate: testSwitch, validationKey: "on", requiredBool: true)
+        let testSwitch:UISwitch = UISwitch()
+        let component:ETValidationComponent = ETValidationComponentBoolean(delegate: testSwitch, validationKey: "on", requiredBool: true)
         testSwitch.validationComponents = [component]
         
-        println("+------------------------------------------")
-        println(" Boolean (Required true)")
-        println("+------------------------------------------")
+        print("+------------------------------------------")
+        print(" Boolean (Required true)")
+        print("+------------------------------------------")
         
         testSwitch.on = false
-        println("Switch: OFF |  Validated: " + (( component.validate() != nil ) ? "NO" : "YES") )
+        print("Switch: OFF |  Validated: " + (( component.isValid ) ? "YES" : "NO") )
         testSwitch.on = true
-        println("Switch: ON  |  Validated: " + (( component.validate() != nil ) ? "NO" : "YES") )
+        print("Switch: ON  |  Validated: " + (( component.isValid ) ? "YES" : "NO") )
         
-        println("+------------------------------------------")
+        print("+------------------------------------------")
     }
     
     func testComponentPassword() {
         
-        var testLabel:UILabel = UILabel(frame: CGRectZero)
-        var component:ETValidationComponent = ETValidationComponentPassword(delegate: testLabel, validationKey: "text")
+        let testLabel:UILabel = UILabel(frame: CGRectZero)
+        let component:ETValidationComponent = ETValidationComponentPassword(delegate: testLabel, validationKey: "text")
         testLabel.validationComponents = [component]
         
-        println("+------------------------------------------")
-        println(" Password Validation")
-        println("+------------------------------------------")
+        print("+------------------------------------------")
+        print(" Password Validation")
+        print("+------------------------------------------")
         
         testLabel.text = ""
-        println("Text: [empty]  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: [empty]  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "test"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test1"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test1 #"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "test1#"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test##"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test1#"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         
         
-        println("+------------------------------------------")
+        print("+------------------------------------------")
     }
     
     func testComponentEmail() {
         
-        var testLabel:UILabel = UILabel(frame: CGRectZero)
-        var component:ETValidationComponent = ETValidationComponentEmail(delegate: testLabel, validationKey: "text")
+        let testLabel:UILabel = UILabel(frame: CGRectZero)
+        let component:ETValidationComponent = ETValidationComponentEmail(delegate: testLabel, validationKey: "text")
         testLabel.validationComponents = [component]
         
-        println("+------------------------------------------")
-        println(" Email Validation")
-        println("+------------------------------------------")
+        print("+------------------------------------------")
+        print(" Email Validation")
+        print("+------------------------------------------")
         
         testLabel.text = ""
-        println("Text: [empty]  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: [empty]  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "test"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "test@test"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "test@test.com"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         
-        println("+------------------------------------------")
+        print("+------------------------------------------")
     }
     
     func testComponentRegex() {
         
-        var testLabel:UILabel = UILabel(frame: CGRectZero)
-        var component:ETValidationComponent = ETValidationComponentRegex(delegate: testLabel, validationKey: "text", pattern:"[a-zA-Z]+")
+        let testLabel:UILabel = UILabel(frame: CGRectZero)
+        let component:ETValidationComponent = ETValidationComponentRegex(delegate: testLabel, validationKey: "text", pattern:"[a-zA-Z]+")
         testLabel.validationComponents = [component]
         
-        println("+------------------------------------------")
-        println(" Regex ([a-zA-Z]+)")
-        println("+------------------------------------------")
+        print("+------------------------------------------")
+        print(" Regex ([a-zA-Z]+)")
+        print("+------------------------------------------")
         
         testLabel.text = ""
-        println("Text: [empty]  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: [empty]  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "#Bad characters"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         
-        println("+------------------------------------------")
+        print("+------------------------------------------")
     }
     
     func testComponentCharLimit() {
         
-        var testLabel:UILabel = UILabel(frame: CGRectZero)
-        var component:ETValidationComponent = ETValidationComponentCharacterLimit(delegate: testLabel, validationKey: "text", minCharacters: 1, maxCharacters: 10)
+        let testLabel:UILabel = UILabel(frame: CGRectZero)
+        let component:ETValidationComponent = ETValidationComponentCharacterLimit(delegate: testLabel, validationKey: "text", minCharacters: 1, maxCharacters: 10)
         testLabel.validationComponents = [component]
         
-        println("+------------------------------------------")
-        println(" Character Limit")
-        println("+------------------------------------------")
+        print("+------------------------------------------")
+        print(" Character Limit")
+        print("+------------------------------------------")
         
         testLabel.text = ""
-        println("Text: [empty]  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: [empty]  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Text is too long"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test"
-        println("Text: \(testLabel.text)  |  Validated: " + ((component.validate() != nil) ? "NO" : "YES") )
+        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         
-        println("+------------------------------------------")
+        print("+------------------------------------------")
         
     }
 }

@@ -41,9 +41,9 @@ class ETValidationComponentRegex : ETValidationComponent {
     *
     *  @return Validation component requiring regex
     */
-    init (delegate: ETValidationProtocol, validationKey: String, pattern:String = "") {
+    init (delegate: ETValidationProtocol, validationKey: String, pattern:String = "", message:String = "Does not meet regular expression.") {
         self.pattern = pattern
-        super.init(delegate: delegate, validationKey: validationKey)
+        super.init(delegate: delegate, validationKey: validationKey, message:message)
     }
     
     /**
@@ -51,30 +51,23 @@ class ETValidationComponentRegex : ETValidationComponent {
     *
     *  @return ETValidationError or nil
     */
-    override func validate() -> ETValidationError? {
+    override func validate() -> [ETValidationError] {
         
-        // See if super validation generated an error which should be resolved first
-        if let superError:ETValidationError = super.validate() { return superError }
+        var errors = super.validate()
         
-        // Get the value using the keypath
-        if let rawValue:AnyObject = (self.delegate as AnyObject).valueForKeyPath(self.valKey) {
-            // Check if raw value is a Boolean
-            if ( !(rawValue is String) ) {
-                // Return an error as raw value should be a boolean
-                return ETValidationError(control: self.delegate, message: "Regex Validation requires value to be string.")
-            }
-            
-            // Create the NSPredicate
-            let value:String = rawValue as! String;
-            let regex:NSPredicate = NSPredicate(format: "SELF MATCHES %@", self.pattern);
-            // Validate the regex component
-            if ( !regex.evaluateWithObject(value) ) {
-                return ETValidationError(control: self.delegate, message: "Does not meet regular expression.");
-            }
+        guard let value = (self.delegate as AnyObject).valueForKeyPath(self.valKey) as? String else {
+            errors.append( ETValidationError(control: self.delegate, message: "Regex Validation requires value to be string.") )
+            return errors
         }
         
-        // Passed validation
-        return nil
+        // Create the NSPredicate
+        let regex:NSPredicate = NSPredicate(format: "SELF MATCHES %@", self.pattern)
+        
+        if !regex.evaluateWithObject(value) {
+            errors.append(ETValidationError(control: self.delegate, message: self.message) )
+        }
+        
+        return errors
     }
     
 }

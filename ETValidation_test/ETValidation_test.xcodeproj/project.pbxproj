@@ -15,7 +15,6 @@
 		D8508A7919735A55004DFD4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8508A7819735A55004DFD4A /* ViewController.swift */; };
 		D8508A7C19735A55004DFD4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8508A7A19735A55004DFD4A /* Main.storyboard */; };
 		D8508A7E19735A55004DFD4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8508A7D19735A55004DFD4A /* Images.xcassets */; };
-		D8508A8A19735A55004DFD4A /* ETValidation_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8508A8919735A55004DFD4A /* ETValidation_testTests.swift */; };
 		D8BD072A198493350073FA66 /* ETValidationComponentEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD0729198493350073FA66 /* ETValidationComponentEmail.swift */; };
 		D8DE15411A57995800015ED9 /* UIView+ETValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DE15401A57995800015ED9 /* UIView+ETValidationProtocol.swift */; };
 		D8E6BD49197C381900749875 /* ETValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD48197C381900749875 /* ETValidationError.swift */; };
@@ -23,16 +22,6 @@
 		D8E6BD4D197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD4C197DE8AA00749875 /* ETValidationComponentCharacterLimit.swift */; };
 		D8E6BD51197DFD3000749875 /* ETValidationComponentRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6BD50197DFD3000749875 /* ETValidationComponentRegex.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D8508A8419735A55004DFD4A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D8508A6919735A55004DFD4A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D8508A7019735A55004DFD4A;
-			remoteInfo = ETValidation_test;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D81C69331991AEE0001A264A /* ETValidationComponentPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentPassword.swift; sourceTree = "<group>"; };
@@ -45,9 +34,6 @@
 		D8508A7819735A55004DFD4A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D8508A7B19735A55004DFD4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8508A7D19735A55004DFD4A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D8508A8319735A55004DFD4A /* ETValidation_testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ETValidation_testTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8508A8819735A55004DFD4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8508A8919735A55004DFD4A /* ETValidation_testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETValidation_testTests.swift; sourceTree = "<group>"; };
 		D8BD0729198493350073FA66 /* ETValidationComponentEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentEmail.swift; sourceTree = "<group>"; };
 		D8DE15401A57995800015ED9 /* UIView+ETValidationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ETValidationProtocol.swift"; sourceTree = "<group>"; };
 		D8E6BD48197C381900749875 /* ETValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationError.swift; sourceTree = "<group>"; };
@@ -58,13 +44,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		D8508A6E19735A55004DFD4A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D8508A8019735A55004DFD4A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -121,7 +100,6 @@
 			children = (
 				D84FF582197B4FDF00F3A417 /* ETValidation */,
 				D8508A7319735A55004DFD4A /* ETValidation_test */,
-				D8508A8619735A55004DFD4A /* ETValidation_testTests */,
 				D8508A7219735A55004DFD4A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				D8508A7119735A55004DFD4A /* ETValidation_test.app */,
-				D8508A8319735A55004DFD4A /* ETValidation_testTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,23 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				D8508A7519735A55004DFD4A /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D8508A8619735A55004DFD4A /* ETValidation_testTests */ = {
-			isa = PBXGroup;
-			children = (
-				D8508A8919735A55004DFD4A /* ETValidation_testTests.swift */,
-				D8508A8719735A55004DFD4A /* Supporting Files */,
-			);
-			path = ETValidation_testTests;
-			sourceTree = "<group>";
-		};
-		D8508A8719735A55004DFD4A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D8508A8819735A55004DFD4A /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -208,40 +168,20 @@
 			productReference = D8508A7119735A55004DFD4A /* ETValidation_test.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D8508A8219735A55004DFD4A /* ETValidation_testTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D8508A9019735A55004DFD4A /* Build configuration list for PBXNativeTarget "ETValidation_testTests" */;
-			buildPhases = (
-				D8508A7F19735A55004DFD4A /* Sources */,
-				D8508A8019735A55004DFD4A /* Frameworks */,
-				D8508A8119735A55004DFD4A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D8508A8519735A55004DFD4A /* PBXTargetDependency */,
-			);
-			name = ETValidation_testTests;
-			productName = ETValidation_testTests;
-			productReference = D8508A8319735A55004DFD4A /* ETValidation_testTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D8508A6919735A55004DFD4A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Joseph Burgess";
 				TargetAttributes = {
 					D8508A7019735A55004DFD4A = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = S942228ZXT;
-					};
-					D8508A8219735A55004DFD4A = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = D8508A7019735A55004DFD4A;
 					};
 				};
 			};
@@ -259,7 +199,6 @@
 			projectRoot = "";
 			targets = (
 				D8508A7019735A55004DFD4A /* ETValidation_test */,
-				D8508A8219735A55004DFD4A /* ETValidation_testTests */,
 			);
 		};
 /* End PBXProject section */
@@ -271,13 +210,6 @@
 			files = (
 				D8508A7C19735A55004DFD4A /* Main.storyboard in Resources */,
 				D8508A7E19735A55004DFD4A /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D8508A8119735A55004DFD4A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,23 +235,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D8508A7F19735A55004DFD4A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D8508A8A19735A55004DFD4A /* ETValidation_testTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D8508A8519735A55004DFD4A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D8508A7019735A55004DFD4A /* ETValidation_test */;
-			targetProxy = D8508A8419735A55004DFD4A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D8508A7A19735A55004DFD4A /* Main.storyboard */ = {
@@ -353,6 +269,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -418,6 +335,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ETValidation_test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "errortype520.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -430,43 +348,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ETValidation_test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "errortype520.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		D8508A9119735A55004DFD4A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ETValidation_test.app/ETValidation_test";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ETValidation_testTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		D8508A9219735A55004DFD4A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ETValidation_test.app/ETValidation_test";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ETValidation_testTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
 		};
@@ -487,15 +370,6 @@
 			buildConfigurations = (
 				D8508A8E19735A55004DFD4A /* Debug */,
 				D8508A8F19735A55004DFD4A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D8508A9019735A55004DFD4A /* Build configuration list for PBXNativeTarget "ETValidation_testTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D8508A9119735A55004DFD4A /* Debug */,
-				D8508A9219735A55004DFD4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -11,7 +11,7 @@ import Foundation
 class ETValidationComponentPassword : ETValidationComponentRegex {
     
     override var pattern : String {
-        set { print("Cannot change pattern on password component. Use Regex component instead.", appendNewline: false) }
+        set { print("Cannot change pattern on password component. Use Regex component instead.") }
         get {
             // ^                 # start-of-string
             // (?=.*[0-9])       # a digit must occur at least once
@@ -25,4 +25,7 @@ class ETValidationComponentPassword : ETValidationComponentRegex {
         }
     }
     
+    required init (delegate: ETValidationProtocol, validationKey: String, message:String = "Password does not meet requirements") {
+        super.init(delegate: delegate, validationKey: validationKey, message:message)
+    }
 }

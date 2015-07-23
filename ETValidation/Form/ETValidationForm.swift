@@ -12,8 +12,8 @@ class ETValidationForm {
     
     // MARK: Properties
     
-    var validationControls : Array<ETValidationProtocol>    // The controls that require validation
-    var validationErrors : Array<ETValidationError>         // The errors reported the last time the form tried to validate
+    var validationControls :    [ETValidationProtocol]    // The controls that require validation
+    var validationErrors :      [ETValidationError]     // The errors reported the last time the form tried to validate
     
     
     
@@ -50,9 +50,12 @@ class ETValidationForm {
     }
     
     func removeControl(control:ETValidationProtocol) {
-//        if let x = self.validationControls.indexOf(control) {
-//            self.validationControls.removeAtIndex(x)
-//        }
+        for i in 0 ... self.validationErrors.count {
+            if self.validationControls[i] === control {
+                self.validationControls.removeAtIndex(i)
+                return
+            }
+        }
     }
     
     // MARK: - Validate Form With Success
@@ -69,11 +72,11 @@ class ETValidationForm {
             // Validate all components in control
             for component in validationComponents {
                 // Get the error (if any) from validation
-                let error = component.validate()
+                let errors = component.validate()
                 // if there is an error in validation
-                if ((error) != nil) {
-                    // Append the error to our validation errors
-                    self.validationErrors.append(error!)
+                if (errors.count > 0) {
+                    // Append the errors to our validation errors
+                    self.validationErrors += errors
                 }
             }
         }

@@ -29,7 +29,12 @@ class ETValidationComponent {
     // MARK: - Properties
     
     var delegate : ETValidationProtocol
-    var valKey : String
+    var valKey:  String
+    var message: String
+    
+    var isValid: Bool {
+        return (self.validate().count < 1)
+    }
     
     // MARK: - Instance methods
     
@@ -41,9 +46,10 @@ class ETValidationComponent {
     *
     *  @return Validation Component
     */
-    init (delegate: ETValidationProtocol, validationKey:String) {
+    init (delegate: ETValidationProtocol, validationKey:String, message:String = "") {
         self.delegate = delegate
         self.valKey = validationKey
+        self.message = message
     }
     
     /**
@@ -51,8 +57,8 @@ class ETValidationComponent {
     *
     *  @return ETValidationError or nil
     */
-    func validate() -> ETValidationError? {
+    func validate() -> [ETValidationError] {
         // Passed all validation, no error generated
-        return nil
+        return [ETValidationError]()
     }
 }
