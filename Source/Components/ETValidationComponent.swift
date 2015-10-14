@@ -24,15 +24,15 @@
 
 import Foundation
 
-class ETValidationComponent {
+public class ETValidationComponent {
     
     // MARK: - Properties
     
-    var delegate : ETValidationProtocol
-    var valKey:  String
-    var message: String
+    public var delegate : ETValidationProtocol
+    public var valKey:  String
+    public var message: String
     
-    var isValid: Bool {
+    public var isValid: Bool {
         return (self.validate().count < 1)
     }
     
@@ -46,7 +46,7 @@ class ETValidationComponent {
     *
     *  @return Validation Component
     */
-    init (delegate: ETValidationProtocol, validationKey:String, message:String = "") {
+    public init (delegate: ETValidationProtocol, validationKey:String, message:String = "") {
         self.delegate = delegate
         self.valKey = validationKey
         self.message = message
@@ -57,7 +57,7 @@ class ETValidationComponent {
     *
     *  @return ETValidationError or nil
     */
-    func validate() -> [ETValidationError] {
+    public func validate() -> [ETValidationError] {
         // Passed all validation, no error generated
         return [ETValidationError]()
     }

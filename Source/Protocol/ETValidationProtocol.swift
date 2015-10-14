@@ -25,7 +25,7 @@
 
 import Foundation
 
-protocol ETValidationProtocol : class, NSObjectProtocol {
+public protocol ETValidationProtocol : class, NSObjectProtocol {
     
     var validationComponents : Array<ETValidationComponent> { get set }
 }

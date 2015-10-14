@@ -24,11 +24,11 @@
 
 import Foundation
 
-class ETValidationComponentBoolean : ETValidationComponent {
+public class ETValidationComponentBoolean : ETValidationComponent {
     
     // MARK: - Properties
     
-    var requiredBool : Bool
+    public var requiredBool : Bool
     
     
     // MARK: - Instance methods
@@ -41,7 +41,7 @@ class ETValidationComponentBoolean : ETValidationComponent {
     *
     *  @return Validation Component
     */
-    init (delegate: ETValidationProtocol, validationKey:String, requiredBool:Bool, message:String = "Boolean does not meet required value.") {
+    public init (delegate: ETValidationProtocol, validationKey:String, requiredBool:Bool, message:String = "Boolean does not meet required value.") {
         self.requiredBool = requiredBool
         super.init(delegate: delegate, validationKey: validationKey, message:message)
     }
@@ -51,7 +51,7 @@ class ETValidationComponentBoolean : ETValidationComponent {
     *
     *  @return ETValidationError or nil
     */
-    override func validate() -> [ETValidationError] {
+    public override func validate() -> [ETValidationError] {
         
         var errors = super.validate()
         

@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ETValidationForm {
+public class ETValidationForm {
     
     // MARK: Properties
     
-    var validationControls :    [ETValidationProtocol]    // The controls that require validation
-    var validationErrors :      [ETValidationError]     // The errors reported the last time the form tried to validate
+    public var validationControls :    [ETValidationProtocol]    // The controls that require validation
+    public var validationErrors :      [ETValidationError]     // The errors reported the last time the form tried to validate
     
     
     
@@ -26,7 +26,7 @@ class ETValidationForm {
     *
     *  @return Validation form
     */
-    convenience init (controls:ETValidationProtocol...) {
+    public convenience init (controls:ETValidationProtocol...) {
         self.init(controls:controls)
     }
     
@@ -37,7 +37,7 @@ class ETValidationForm {
     *
     *  @return Validation Form
     */
-    init (controls:Array<ETValidationProtocol>) {
+    public init (controls:Array<ETValidationProtocol>) {
         self.validationControls = controls
         self.validationErrors = []
     }
@@ -45,11 +45,11 @@ class ETValidationForm {
     
     // MARK: - Add / Remove Controls
     
-    func addControl(control:ETValidationProtocol) {
+    public func addControl(control:ETValidationProtocol) {
         self.validationControls.append(control)
     }
     
-    func removeControl(control:ETValidationProtocol) {
+    public func removeControl(control:ETValidationProtocol) {
         for i in 0 ... self.validationErrors.count {
             if self.validationControls[i] === control {
                 self.validationControls.removeAtIndex(i)
@@ -60,7 +60,7 @@ class ETValidationForm {
     
     // MARK: - Validate Form With Success
     
-    func validateForm(success:(Void) -> Void, failure:(Array<ETValidationError>) -> Void) {
+    public func validateForm(success:(Void) -> Void, failure:(Array<ETValidationError>) -> Void) {
         
         // Remove all items from the Validation errors array
         self.validationErrors.removeAll(keepCapacity:false)

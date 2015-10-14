@@ -10,7 +10,7 @@ import Foundation
 
 class ETValidationComponentPassword : ETValidationComponentRegex {
     
-    override var pattern : String {
+    internal override var pattern : String {
         set { print("Cannot change pattern on password component. Use Regex component instead.") }
         get {
             // ^                 # start-of-string
@@ -25,7 +25,7 @@ class ETValidationComponentPassword : ETValidationComponentRegex {
         }
     }
     
-    required init (delegate: ETValidationProtocol, validationKey: String, message:String = "Password does not meet requirements") {
+    internal required init (delegate: ETValidationProtocol, validationKey: String, message:String = "Password does not meet requirements") {
         super.init(delegate: delegate, validationKey: validationKey, message:message)
     }
 }

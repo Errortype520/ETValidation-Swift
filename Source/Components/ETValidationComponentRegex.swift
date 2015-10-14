@@ -24,11 +24,11 @@
 
 import Foundation
 
-class ETValidationComponentRegex : ETValidationComponent {
+public class ETValidationComponentRegex : ETValidationComponent {
     
     // MARK: - Properties
     
-    var pattern : String
+    public var pattern : String
     
     // MARK: - Instance Methods
     
@@ -41,7 +41,7 @@ class ETValidationComponentRegex : ETValidationComponent {
     *
     *  @return Validation component requiring regex
     */
-    init (delegate: ETValidationProtocol, validationKey: String, pattern:String = "", message:String = "Does not meet regular expression.") {
+    public init (delegate: ETValidationProtocol, validationKey: String, pattern:String = "", message:String = "Does not meet regular expression.") {
         self.pattern = pattern
         super.init(delegate: delegate, validationKey: validationKey, message:message)
     }
@@ -51,7 +51,7 @@ class ETValidationComponentRegex : ETValidationComponent {
     *
     *  @return ETValidationError or nil
     */
-    override func validate() -> [ETValidationError] {
+    public override func validate() -> [ETValidationError] {
         
         var errors = super.validate()
         

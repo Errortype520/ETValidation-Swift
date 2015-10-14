@@ -24,12 +24,12 @@
 
 import Foundation
 
-class ETValidationComponentCharacterLimit : ETValidationComponent {
+public class ETValidationComponentCharacterLimit : ETValidationComponent {
     
     // MARK: - Properties
     
-    var minCharacters : Int = 0
-    var maxCharacters : Int = Int.max
+    public var minCharacters : Int = 0
+    public var maxCharacters : Int = Int.max
     
     // MARK: - Instance Methods
     
@@ -43,7 +43,7 @@ class ETValidationComponentCharacterLimit : ETValidationComponent {
     *
     *  @return Character Limit Validation component
     */
-    init (delegate: ETValidationProtocol, validationKey: String, minCharacters : Int = 0, maxCharacters : Int = Int.max, message : String = "Does not meet character limit.") {
+    public init (delegate: ETValidationProtocol, validationKey: String, minCharacters : Int = 0, maxCharacters : Int = Int.max, message : String = "Does not meet character limit.") {
         self.minCharacters = minCharacters
         self.maxCharacters = maxCharacters
         super.init(delegate: delegate, validationKey: validationKey, message:message)
@@ -54,7 +54,7 @@ class ETValidationComponentCharacterLimit : ETValidationComponent {
     *
     *  @return ETValidationError or nil
     */
-    override func validate() -> [ETValidationError] {
+    public override func validate() -> [ETValidationError] {
         
         var errors = super.validate()
         

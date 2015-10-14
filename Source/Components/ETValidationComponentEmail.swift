@@ -10,7 +10,7 @@ import Foundation
 
 class ETValidationComponentEmail : ETValidationComponentRegex {
     
-    override var pattern : String {
+    internal override var pattern : String {
         set { print("Cannot change pattern on email component. Use Regex component instead.") }
         get {
                 // Use RFC-2822 email validation
@@ -28,7 +28,7 @@ class ETValidationComponentEmail : ETValidationComponentRegex {
     }
     
     
-    required init (delegate: ETValidationProtocol, validationKey: String, message:String = "Not a valid email address") {
+    internal required init (delegate: ETValidationProtocol, validationKey: String, message:String = "Not a valid email address") {
         super.init(delegate: delegate, validationKey: validationKey, message:message)
     }
 }
