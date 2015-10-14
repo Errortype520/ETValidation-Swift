@@ -1,4 +1,4 @@
-ETValidation-Swift (Alpha 0.2)
+ETValidation-Swift (0.3 beta 1)
 ==================
 
 Form Validation for Swift. Documentation coming soon, though test is included in build.
