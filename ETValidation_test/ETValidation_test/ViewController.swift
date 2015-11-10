@@ -26,7 +26,7 @@ import UIKit
 
 var sharedObserverSelector : Selector = "validationComponents"
 extension UIView : ETValidationProtocol {
-    var validationComponents : Array<ETValidationComponent> {
+    public var validationComponents : Array<ETValidationComponent> {
         get { return objc_getAssociatedObject(self, &sharedObserverSelector) as! Array<ETValidationComponent> }
         set { objc_setAssociatedObject(self, &sharedObserverSelector, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
@@ -102,6 +102,28 @@ class ViewController: UIViewController {
         self.testComponentEmail()
         self.testComponentPassword()
         self.testComponentBoolean()
+        self.testComponentMatch()
+    }
+    
+    func testComponentMatch() {
+        
+        let testLabel:UILabel = UILabel(frame: CGRectZero)
+        let testLabel2:UILabel = UILabel(frame: CGRectZero)
+        
+        let component:ETValidationComponent = ETValidationComponentMatch<String>(delegate: testLabel, validationKey: "text", matchControl: testLabel2)
+        testLabel.validationComponents = [component]
+        
+        print("+------------------------------------------")
+        print(" Component Match")
+        print("+------------------------------------------")
+        
+        testLabel.text  = "One"
+        testLabel2.text = "Two"
+        print("Text: [One, Two]  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        testLabel2.text = "One"
+        print("Text: [One, One]  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        
+        print("+------------------------------------------")
     }
     
     func testComponentBoolean() {
@@ -135,21 +157,21 @@ class ViewController: UIViewController {
         testLabel.text = ""
         print("Text: [empty]  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "test"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test1"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test1 #"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "test1#"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test##"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test1#"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         
         
         print("+------------------------------------------")
@@ -168,11 +190,11 @@ class ViewController: UIViewController {
         testLabel.text = ""
         print("Text: [empty]  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "test"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "test@test"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "test@test.com"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         
         print("+------------------------------------------")
     }
@@ -190,9 +212,9 @@ class ViewController: UIViewController {
         testLabel.text = ""
         print("Text: [empty]  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "#Bad characters"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         
         print("+------------------------------------------")
     }
@@ -210,9 +232,9 @@ class ViewController: UIViewController {
         testLabel.text = ""
         print("Text: [empty]  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Text is too long"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         testLabel.text = "Test"
-        print("Text: \(testLabel.text)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
+        print("Text: \(testLabel.text!)  |  Validated: " + ((component.isValid) ? "YES" : "NO") )
         
         print("+------------------------------------------")
         
