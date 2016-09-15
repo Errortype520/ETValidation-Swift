@@ -24,11 +24,11 @@
 
 import Foundation
 
-public class ETValidationComponentMatch<T where T:Equatable> : ETValidationComponent {
+open class ETValidationComponentMatch<T> : ETValidationComponent where T:Equatable {
     
     // MARK: - Properties
     
-    public var matchControl: ETValidationProtocol
+    open var matchControl: ETValidationProtocol
     
     
     // MARK: - Instance methods
@@ -51,12 +51,12 @@ public class ETValidationComponentMatch<T where T:Equatable> : ETValidationCompo
      *
      *  @return ETValidationError or nil
      */
-    public override func validate() -> [ETValidationError] {
+    open override func validate() -> [ETValidationError] {
         
         var errors = super.validate()
         
-        guard let value = (self.delegate as AnyObject).valueForKeyPath(self.valKey) as? T,
-                  value2 = (self.matchControl as AnyObject).valueForKeyPath(self.valKey) as? T else {
+        guard let value = (self.delegate as AnyObject).value(forKeyPath: self.valKey) as? T,
+                  let value2 = (self.matchControl as AnyObject).value(forKeyPath: self.valKey) as? T else {
             errors.append( ETValidationError(control: self.delegate, message: "Match Control COmpotent failed to get value.") )
             return errors
         }

@@ -24,7 +24,7 @@
 
 import UIKit
 
-var sharedObserverSelector : Selector = "validationComponents"
+var sharedObserverSelector : Selector = Selector(("validationComponents"))
 extension UIView : ETValidationProtocol {
     public var validationComponents : Array<ETValidationComponent> {
         get { return objc_getAssociatedObject(self, &sharedObserverSelector) as! Array<ETValidationComponent> }
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
     // MARK: - Form Validation (IBOutlets)
     
     func testFormValidation() {
-        guard let txtCharacterLimit = self.txtCharacterLimit, txtEmail = self.txtEmail, txtPasword = self.txtPasword else { return }
+        guard let txtCharacterLimit = self.txtCharacterLimit, let txtEmail = self.txtEmail, let txtPasword = self.txtPasword else { return }
         
         // Add a character limit validation component to the character limit text field
         let txtCharacterLimitComponent:ETValidationComponent = ETValidationComponentCharacterLimit(delegate:txtCharacterLimit, validationKey:"text", minCharacters: 1, maxCharacters: 10)
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         self.handleTestFormValidation(nil)
     }
     
-    @IBAction func handleTestFormValidation(sender:UIButton?) {
+    @IBAction func handleTestFormValidation(_ sender:UIButton?) {
         
         // Validate the form
         self.form?.validateForm({ () in
@@ -107,8 +107,8 @@ class ViewController: UIViewController {
     
     func testComponentMatch() {
         
-        let testLabel:UILabel = UILabel(frame: CGRectZero)
-        let testLabel2:UILabel = UILabel(frame: CGRectZero)
+        let testLabel:UILabel = UILabel(frame: CGRect.zero)
+        let testLabel2:UILabel = UILabel(frame: CGRect.zero)
         
         let component:ETValidationComponent = ETValidationComponentMatch<String>(delegate: testLabel, validationKey: "text", matchControl: testLabel2)
         testLabel.validationComponents = [component]
@@ -136,9 +136,9 @@ class ViewController: UIViewController {
         print(" Boolean (Required true)")
         print("+------------------------------------------")
         
-        testSwitch.on = false
+        testSwitch.isOn = false
         print("Switch: OFF |  Validated: " + (( component.isValid ) ? "YES" : "NO") )
-        testSwitch.on = true
+        testSwitch.isOn = true
         print("Switch: ON  |  Validated: " + (( component.isValid ) ? "YES" : "NO") )
         
         print("+------------------------------------------")
@@ -146,7 +146,7 @@ class ViewController: UIViewController {
     
     func testComponentPassword() {
         
-        let testLabel:UILabel = UILabel(frame: CGRectZero)
+        let testLabel:UILabel = UILabel(frame: CGRect.zero)
         let component:ETValidationComponent = ETValidationComponentPassword(delegate: testLabel, validationKey: "text")
         testLabel.validationComponents = [component]
         
@@ -179,7 +179,7 @@ class ViewController: UIViewController {
     
     func testComponentEmail() {
         
-        let testLabel:UILabel = UILabel(frame: CGRectZero)
+        let testLabel:UILabel = UILabel(frame: CGRect.zero)
         let component:ETValidationComponent = ETValidationComponentEmail(delegate: testLabel, validationKey: "text")
         testLabel.validationComponents = [component]
         
@@ -201,7 +201,7 @@ class ViewController: UIViewController {
     
     func testComponentRegex() {
         
-        let testLabel:UILabel = UILabel(frame: CGRectZero)
+        let testLabel:UILabel = UILabel(frame: CGRect.zero)
         let component:ETValidationComponent = ETValidationComponentRegex(delegate: testLabel, validationKey: "text", pattern:"[a-zA-Z]+")
         testLabel.validationComponents = [component]
         
@@ -221,7 +221,7 @@ class ViewController: UIViewController {
     
     func testComponentCharLimit() {
         
-        let testLabel:UILabel = UILabel(frame: CGRectZero)
+        let testLabel:UILabel = UILabel(frame: CGRect.zero)
         let component:ETValidationComponent = ETValidationComponentCharacterLimit(delegate: testLabel, validationKey: "text", minCharacters: 1, maxCharacters: 10)
         testLabel.validationComponents = [component]
         

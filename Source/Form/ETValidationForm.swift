@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class ETValidationForm {
+open class ETValidationForm {
     
     // MARK: Properties
     
-    public var validationControls :    [ETValidationProtocol]    // The controls that require validation
-    public var validationErrors :      [ETValidationError]     // The errors reported the last time the form tried to validate
+    open var validationControls :    [ETValidationProtocol]    // The controls that require validation
+    open var validationErrors :      [ETValidationError]     // The errors reported the last time the form tried to validate
     
     
     
@@ -45,14 +45,14 @@ public class ETValidationForm {
     
     // MARK: - Add / Remove Controls
     
-    public func addControl(control:ETValidationProtocol) {
+    open func addControl(_ control:ETValidationProtocol) {
         self.validationControls.append(control)
     }
     
-    public func removeControl(control:ETValidationProtocol) {
+    open func removeControl(_ control:ETValidationProtocol) {
         for i in 0 ... self.validationErrors.count {
             if self.validationControls[i] === control {
-                self.validationControls.removeAtIndex(i)
+                self.validationControls.remove(at: i)
                 return
             }
         }
@@ -60,10 +60,10 @@ public class ETValidationForm {
     
     // MARK: - Validate Form With Success
     
-    public func validateForm(success:(Void) -> Void, failure:(Array<ETValidationError>) -> Void) {
+    open func validateForm(_ success:(Void) -> Void, failure:(Array<ETValidationError>) -> Void) {
         
         // Remove all items from the Validation errors array
-        self.validationErrors.removeAll(keepCapacity:false)
+        self.validationErrors.removeAll(keepingCapacity:false)
         
         // Validate each component in validation controls
         for control in self.validationControls {

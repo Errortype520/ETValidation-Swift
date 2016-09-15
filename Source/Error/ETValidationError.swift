@@ -24,12 +24,12 @@
 
 import Foundation
 
-public class ETValidationError {
+open class ETValidationError {
     
     // MARK: - Properties
     
-    public var control : ETValidationProtocol?     // The control that originated the error
-    public var message : String                    // The error message generated on error
+    open var control : ETValidationProtocol?     // The control that originated the error
+    open var message : String                    // The error message generated on error
     
     
     // MARK: - Instance methods

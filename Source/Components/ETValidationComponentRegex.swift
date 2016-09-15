@@ -24,11 +24,11 @@
 
 import Foundation
 
-public class ETValidationComponentRegex : ETValidationComponent {
+open class ETValidationComponentRegex : ETValidationComponent {
     
     // MARK: - Properties
     
-    public var pattern : String
+    open var pattern : String
     
     // MARK: - Instance Methods
     
@@ -51,11 +51,11 @@ public class ETValidationComponentRegex : ETValidationComponent {
     *
     *  @return ETValidationError or nil
     */
-    public override func validate() -> [ETValidationError] {
+    open override func validate() -> [ETValidationError] {
         
         var errors = super.validate()
         
-        guard let value = (self.delegate as AnyObject).valueForKeyPath(self.valKey) as? String else {
+        guard let value = (self.delegate as AnyObject).value(forKeyPath: self.valKey) as? String else {
             errors.append( ETValidationError(control: self.delegate, message: "Regex Validation requires value to be string.") )
             return errors
         }
@@ -63,7 +63,7 @@ public class ETValidationComponentRegex : ETValidationComponent {
         // Create the NSPredicate
         let regex:NSPredicate = NSPredicate(format: "SELF MATCHES %@", self.pattern)
         
-        if !regex.evaluateWithObject(value) {
+        if !regex.evaluate(with: value) {
             errors.append(ETValidationError(control: self.delegate, message: self.message) )
         }
         

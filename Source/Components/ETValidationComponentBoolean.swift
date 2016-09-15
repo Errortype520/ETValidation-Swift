@@ -24,11 +24,11 @@
 
 import Foundation
 
-public class ETValidationComponentBoolean : ETValidationComponent {
+open class ETValidationComponentBoolean : ETValidationComponent {
     
     // MARK: - Properties
     
-    public var requiredBool : Bool
+    open var requiredBool : Bool
     
     
     // MARK: - Instance methods
@@ -51,11 +51,11 @@ public class ETValidationComponentBoolean : ETValidationComponent {
     *
     *  @return ETValidationError or nil
     */
-    public override func validate() -> [ETValidationError] {
+    open override func validate() -> [ETValidationError] {
         
         var errors = super.validate()
         
-        guard let value = (self.delegate as AnyObject).valueForKeyPath(self.valKey) as? Bool else {
+        guard let value = (self.delegate as AnyObject).value(forKeyPath: self.valKey) as? Bool else {
             errors.append( ETValidationError(control: self.delegate, message: "Bool evaluation requires BOOL value.") )
             return errors
         }

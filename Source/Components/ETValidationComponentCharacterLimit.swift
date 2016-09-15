@@ -24,12 +24,12 @@
 
 import Foundation
 
-public class ETValidationComponentCharacterLimit : ETValidationComponent {
+open class ETValidationComponentCharacterLimit : ETValidationComponent {
     
     // MARK: - Properties
     
-    public var minCharacters : Int = 0
-    public var maxCharacters : Int = Int.max
+    open var minCharacters : Int = 0
+    open var maxCharacters : Int = Int.max
     
     // MARK: - Instance Methods
     
@@ -54,11 +54,11 @@ public class ETValidationComponentCharacterLimit : ETValidationComponent {
     *
     *  @return ETValidationError or nil
     */
-    public override func validate() -> [ETValidationError] {
+    open override func validate() -> [ETValidationError] {
         
         var errors = super.validate()
         
-        guard let value = (self.delegate as AnyObject).valueForKeyPath(self.valKey) as? String else {
+        guard let value = (self.delegate as AnyObject).value(forKeyPath: self.valKey) as? String else {
             errors.append( ETValidationError(control: self.delegate, message: "Character Limit Validation requires value to be string.") )
             return errors
         }
