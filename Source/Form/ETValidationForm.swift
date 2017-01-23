@@ -50,9 +50,10 @@ open class ETValidationForm {
     }
     
     open func removeControl(_ control:ETValidationProtocol) {
-        for i in 0 ... self.validationControls.count {
-            if self.validationControls[i] === control {
-                self.validationControls.remove(at: i)
+        for (index, cntrl) in self.validationControls.enumerated() {
+            
+            if cntrl === control {
+                self.validationControls.remove(at: index)
                 return
             }
         }
