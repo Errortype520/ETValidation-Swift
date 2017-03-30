@@ -89,7 +89,7 @@ class ViewController: UIViewController {
         }, failure: { (errors) in
             print("Form Validation Failure!")
             for error in errors {
-                print("Control: \(error.control)  | Message:  \(error.message)")
+                print("Control: \(String(describing: error.control))  | Message:  \(error.message)")
             }
         })
     }
