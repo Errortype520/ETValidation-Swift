@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D824A6A51BCEB15B00250B61 /* ETValidationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D824A6971BCEB15B00250B61 /* ETValidationComponent.swift */; };
-		D824A6A61BCEB15B00250B61 /* ETValidationComponentBoolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D824A6981BCEB15B00250B61 /* ETValidationComponentBoolean.swift */; };
-		D824A6A71BCEB15B00250B61 /* ETValidationComponentCharacterLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D824A6991BCEB15B00250B61 /* ETValidationComponentCharacterLimit.swift */; };
-		D824A6A81BCEB15B00250B61 /* ETValidationComponentEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D824A69A1BCEB15B00250B61 /* ETValidationComponentEmail.swift */; };
-		D824A6A91BCEB15B00250B61 /* ETValidationComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = D824A69B1BCEB15B00250B61 /* ETValidationComponentPassword.swift */; };
-		D824A6AA1BCEB15B00250B61 /* ETValidationComponentRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D824A69C1BCEB15B00250B61 /* ETValidationComponentRegex.swift */; };
-		D824A6AB1BCEB15B00250B61 /* ETValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D824A69E1BCEB15B00250B61 /* ETValidationError.swift */; };
-		D824A6AD1BCEB15B00250B61 /* ETValidationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D824A6A21BCEB15B00250B61 /* ETValidationForm.swift */; };
-		D824A6AE1BCEB15B00250B61 /* ETValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D824A6A41BCEB15B00250B61 /* ETValidationProtocol.swift */; };
-		D83FBADE1BF24926003FD732 /* ETValidationComponentMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83FBADD1BF24926003FD732 /* ETValidationComponentMatch.swift */; };
+		D81968821F75BC620075284C /* BooleanRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81968731F75BB550075284C /* BooleanRule.swift */; };
+		D81968831F75BC620075284C /* EmailRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81968741F75BB550075284C /* EmailRule.swift */; };
+		D81968841F75BC620075284C /* MatchRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81968751F75BB550075284C /* MatchRule.swift */; };
+		D81968851F75BC620075284C /* MaxLengthRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81968761F75BB550075284C /* MaxLengthRule.swift */; };
+		D81968861F75BC620075284C /* MinLengthRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81968771F75BB550075284C /* MinLengthRule.swift */; };
+		D81968871F75BC620075284C /* PasswordRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81968781F75BB550075284C /* PasswordRule.swift */; };
+		D81968881F75BC620075284C /* RegexRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81968791F75BB550075284C /* RegexRule.swift */; };
+		D81968891F75BC620075284C /* RequiredRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D819687A1F75BB550075284C /* RequiredRule.swift */; };
+		D819688A1F75BC620075284C /* RuleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D819687B1F75BB550075284C /* RuleProtocol.swift */; };
+		D819688B1F75BC620075284C /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D819687D1F75BB550075284C /* ValidationError.swift */; };
+		D819688C1F75BC620075284C /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D819687F1F75BB550075284C /* ValidationProtocol.swift */; };
+		D819688D1F75BC620075284C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81968811F75BB550075284C /* Validator.swift */; };
 		D8508A7719735A55004DFD4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8508A7619735A55004DFD4A /* AppDelegate.swift */; };
 		D8508A7919735A55004DFD4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8508A7819735A55004DFD4A /* ViewController.swift */; };
 		D8508A7C19735A55004DFD4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8508A7A19735A55004DFD4A /* Main.storyboard */; };
@@ -24,16 +26,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D824A6971BCEB15B00250B61 /* ETValidationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponent.swift; sourceTree = "<group>"; };
-		D824A6981BCEB15B00250B61 /* ETValidationComponentBoolean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentBoolean.swift; sourceTree = "<group>"; };
-		D824A6991BCEB15B00250B61 /* ETValidationComponentCharacterLimit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentCharacterLimit.swift; sourceTree = "<group>"; };
-		D824A69A1BCEB15B00250B61 /* ETValidationComponentEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentEmail.swift; sourceTree = "<group>"; };
-		D824A69B1BCEB15B00250B61 /* ETValidationComponentPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentPassword.swift; sourceTree = "<group>"; };
-		D824A69C1BCEB15B00250B61 /* ETValidationComponentRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentRegex.swift; sourceTree = "<group>"; };
-		D824A69E1BCEB15B00250B61 /* ETValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationError.swift; sourceTree = "<group>"; };
-		D824A6A21BCEB15B00250B61 /* ETValidationForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationForm.swift; sourceTree = "<group>"; };
-		D824A6A41BCEB15B00250B61 /* ETValidationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationProtocol.swift; sourceTree = "<group>"; };
-		D83FBADD1BF24926003FD732 /* ETValidationComponentMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETValidationComponentMatch.swift; sourceTree = "<group>"; };
+		D81968731F75BB550075284C /* BooleanRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanRule.swift; sourceTree = "<group>"; };
+		D81968741F75BB550075284C /* EmailRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRule.swift; sourceTree = "<group>"; };
+		D81968751F75BB550075284C /* MatchRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchRule.swift; sourceTree = "<group>"; };
+		D81968761F75BB550075284C /* MaxLengthRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxLengthRule.swift; sourceTree = "<group>"; };
+		D81968771F75BB550075284C /* MinLengthRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinLengthRule.swift; sourceTree = "<group>"; };
+		D81968781F75BB550075284C /* PasswordRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRule.swift; sourceTree = "<group>"; };
+		D81968791F75BB550075284C /* RegexRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexRule.swift; sourceTree = "<group>"; };
+		D819687A1F75BB550075284C /* RequiredRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredRule.swift; sourceTree = "<group>"; };
+		D819687B1F75BB550075284C /* RuleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleProtocol.swift; sourceTree = "<group>"; };
+		D819687D1F75BB550075284C /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		D819687F1F75BB550075284C /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationProtocol.swift; sourceTree = "<group>"; };
+		D81968811F75BB550075284C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		D8508A7119735A55004DFD4A /* ETValidation_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETValidation_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8508A7519735A55004DFD4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8508A7619735A55004DFD4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,60 +57,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D824A6951BCEB15B00250B61 /* Source */ = {
+		D81968711F75BB550075284C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				D824A6961BCEB15B00250B61 /* Components */,
-				D824A69D1BCEB15B00250B61 /* Error */,
-				D824A6A11BCEB15B00250B61 /* Form */,
-				D824A6A31BCEB15B00250B61 /* Protocol */,
+				D81968721F75BB550075284C /* Components */,
+				D819687C1F75BB550075284C /* Error */,
+				D819687E1F75BB550075284C /* Protocol */,
+				D81968801F75BB550075284C /* Validator */,
 			);
 			name = Source;
 			path = ../Source;
 			sourceTree = "<group>";
 		};
-		D824A6961BCEB15B00250B61 /* Components */ = {
+		D81968721F75BB550075284C /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				D824A6971BCEB15B00250B61 /* ETValidationComponent.swift */,
-				D824A6981BCEB15B00250B61 /* ETValidationComponentBoolean.swift */,
-				D824A6991BCEB15B00250B61 /* ETValidationComponentCharacterLimit.swift */,
-				D824A69A1BCEB15B00250B61 /* ETValidationComponentEmail.swift */,
-				D824A69B1BCEB15B00250B61 /* ETValidationComponentPassword.swift */,
-				D824A69C1BCEB15B00250B61 /* ETValidationComponentRegex.swift */,
-				D83FBADD1BF24926003FD732 /* ETValidationComponentMatch.swift */,
+				D819687B1F75BB550075284C /* RuleProtocol.swift */,
+				D81968731F75BB550075284C /* BooleanRule.swift */,
+				D81968761F75BB550075284C /* MaxLengthRule.swift */,
+				D81968771F75BB550075284C /* MinLengthRule.swift */,
+				D819687A1F75BB550075284C /* RequiredRule.swift */,
+				D81968791F75BB550075284C /* RegexRule.swift */,
+				D81968741F75BB550075284C /* EmailRule.swift */,
+				D81968781F75BB550075284C /* PasswordRule.swift */,
+				D81968751F75BB550075284C /* MatchRule.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		D824A69D1BCEB15B00250B61 /* Error */ = {
+		D819687C1F75BB550075284C /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				D824A69E1BCEB15B00250B61 /* ETValidationError.swift */,
+				D819687D1F75BB550075284C /* ValidationError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
 		};
-		D824A6A11BCEB15B00250B61 /* Form */ = {
+		D819687E1F75BB550075284C /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				D824A6A21BCEB15B00250B61 /* ETValidationForm.swift */,
-			);
-			path = Form;
-			sourceTree = "<group>";
-		};
-		D824A6A31BCEB15B00250B61 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				D824A6A41BCEB15B00250B61 /* ETValidationProtocol.swift */,
+				D819687F1F75BB550075284C /* ValidationProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		D81968801F75BB550075284C /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				D81968811F75BB550075284C /* Validator.swift */,
+			);
+			path = Validator;
 			sourceTree = "<group>";
 		};
 		D8508A6819735A55004DFD4A = {
 			isa = PBXGroup;
 			children = (
-				D824A6951BCEB15B00250B61 /* Source */,
+				D81968711F75BB550075284C /* Source */,
 				D8508A7319735A55004DFD4A /* ETValidation_test */,
 				D8508A7219735A55004DFD4A /* Products */,
 			);
@@ -168,12 +174,12 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Joseph Burgess";
 				TargetAttributes = {
 					D8508A7019735A55004DFD4A = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = S942228ZXT;
+						DevelopmentTeam = ERYB6FCF4U;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -213,18 +219,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D824A6A61BCEB15B00250B61 /* ETValidationComponentBoolean.swift in Sources */,
+				D81968821F75BC620075284C /* BooleanRule.swift in Sources */,
+				D81968831F75BC620075284C /* EmailRule.swift in Sources */,
+				D81968841F75BC620075284C /* MatchRule.swift in Sources */,
+				D81968851F75BC620075284C /* MaxLengthRule.swift in Sources */,
+				D81968861F75BC620075284C /* MinLengthRule.swift in Sources */,
+				D81968871F75BC620075284C /* PasswordRule.swift in Sources */,
+				D81968881F75BC620075284C /* RegexRule.swift in Sources */,
+				D81968891F75BC620075284C /* RequiredRule.swift in Sources */,
+				D819688A1F75BC620075284C /* RuleProtocol.swift in Sources */,
+				D819688B1F75BC620075284C /* ValidationError.swift in Sources */,
+				D819688C1F75BC620075284C /* ValidationProtocol.swift in Sources */,
+				D819688D1F75BC620075284C /* Validator.swift in Sources */,
 				D8508A7919735A55004DFD4A /* ViewController.swift in Sources */,
-				D83FBADE1BF24926003FD732 /* ETValidationComponentMatch.swift in Sources */,
-				D824A6AD1BCEB15B00250B61 /* ETValidationForm.swift in Sources */,
-				D824A6AB1BCEB15B00250B61 /* ETValidationError.swift in Sources */,
-				D824A6AA1BCEB15B00250B61 /* ETValidationComponentRegex.swift in Sources */,
-				D824A6A51BCEB15B00250B61 /* ETValidationComponent.swift in Sources */,
 				D8508A7719735A55004DFD4A /* AppDelegate.swift in Sources */,
-				D824A6A81BCEB15B00250B61 /* ETValidationComponentEmail.swift in Sources */,
-				D824A6A71BCEB15B00250B61 /* ETValidationComponentCharacterLimit.swift in Sources */,
-				D824A6A91BCEB15B00250B61 /* ETValidationComponentPassword.swift in Sources */,
-				D824A6AE1BCEB15B00250B61 /* ETValidationProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,14 +258,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -296,14 +310,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -333,11 +353,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = ERYB6FCF4U;
 				INFOPLIST_FILE = ETValidation_test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "errortype520.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -347,11 +368,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = ERYB6FCF4U;
 				INFOPLIST_FILE = ETValidation_test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "errortype520.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

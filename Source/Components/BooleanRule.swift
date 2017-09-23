@@ -1,5 +1,5 @@
 //
-//  ETValidationComponent.swift
+//  BooleanRule.swift
 //  ETValidation
 //
 //  Copyright (c) 2014 Joe Burgess
@@ -24,41 +24,22 @@
 
 import Foundation
 
-open class ETValidationComponent {
+open class BooleanRule: RuleProtocol {
     
     // MARK: - Properties
     
-    open var delegate : ETValidationProtocol
-    open var valKey:  String
-    open var message: String
-    
-    open var isValid: Bool {
-        return (self.validate().count < 1)
+    public var requiredBool: Bool
+    public var errorMessage: String {
+        return "Must be \(requiredBool)"
     }
     
-    // MARK: - Instance methods
-    
-    /**
-    *  Base validation component with delegate and key path.
-    *
-    *  @param delegate The control that owns this component
-    *  @param valKey   The key path with the value to evaluate
-    *
-    *  @return Validation Component
-    */
-    public init (delegate: ETValidationProtocol, validationKey:String, message:String = "") {
-        self.delegate = delegate
-        self.valKey = validationKey
-        self.message = message
+    required public init(requiredValue: Bool = true) {
+        self.requiredBool = requiredValue
     }
     
-    /**
-    *  Run component validation, and return nil or any errors found.
-    *
-    *  @return ETValidationError or nil
-    */
-    open func validate() -> [ETValidationError] {
-        // Passed all validation, no error generated
-        return [ETValidationError]()
+    public func validate(against: String) -> Bool {
+        let against: Bool = !against.isEmpty
+        
+        return self.requiredBool == against
     }
 }

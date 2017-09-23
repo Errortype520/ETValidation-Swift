@@ -1,5 +1,5 @@
 //
-//  ETValidationProtocol.swift
+//  MinLengthRule.swift
 //  ETValidation
 //
 //  Copyright (c) 2014 Joe Burgess
@@ -22,10 +22,21 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
 import Foundation
 
-public protocol ETValidationProtocol : class, NSObjectProtocol {
+open class MinLengthRule: RuleProtocol {
     
-    var validationComponents : Array<ETValidationComponent> { get set }
+    // MARK: - Properties
+    public var requiredLength: Int = 0
+    public var errorMessage: String {
+        return "Must be at least \(self.requiredLength) characters"
+    }
+    
+    public init(requiredLength: Int = 0) {
+        self.requiredLength = requiredLength
+    }
+    
+    public func validate(against: String) -> Bool {
+        return against.count >= self.requiredLength
+    }
 }

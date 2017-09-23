@@ -1,6 +1,6 @@
 //
-//  ETValidationError.swift
-//  ETValidation
+//  ValidationRule.swift
+//  ValidationRule
 //
 //  Copyright (c) 2014 Joe Burgess
 //
@@ -24,27 +24,9 @@
 
 import Foundation
 
-open class ETValidationError {
+public protocol RuleProtocol {
     
-    // MARK: - Properties
+    var errorMessage: String { get }
     
-    open var control : ETValidationProtocol?     // The control that originated the error
-    open var message : String                    // The error message generated on error
-    
-    
-    // MARK: - Instance methods
-    
-    /**
-    *  Validation error that contains information about which control failed validation, and the error message produced.
-    *
-    *  @param control   The control that failed validation
-    *  @param message   The error message produced by failing validation
-    *
-    *  @return Validation error
-    */
-    public init (control:ETValidationProtocol, message:String) {
-        self.control = control
-        self.message = message
-    }
-    
+    func validate(against: String) -> Bool
 }
