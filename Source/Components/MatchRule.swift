@@ -29,7 +29,12 @@ open class MatchRule: RuleProtocol {
     // MARK: - Properties
     
     public weak var matchControl: ValidationProtocol?
+    
     public var errorMessage: String {
+        get { return self._errorMessage ?? defaultErrorMessage }
+        set { self._errorMessage = newValue }
+    }; private var _errorMessage: String?
+    internal var defaultErrorMessage: String {
         return "Must does not match"
     }
     

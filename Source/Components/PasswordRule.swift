@@ -38,7 +38,7 @@ open class PasswordRule: RegexRule {
     // $                 # end-of-string
     private let _pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!?])(?=\\S+$).{6,}$"
     
-    override public var errorMessage: String {
+    override internal var defaultErrorMessage: String {
         return "Not a valid password"
     }
     

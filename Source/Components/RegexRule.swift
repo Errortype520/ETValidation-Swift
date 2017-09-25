@@ -29,7 +29,12 @@ open class RegexRule: RuleProtocol {
     // MARK: - Properties
     
     public var pattern : String
+    
     public var errorMessage: String {
+        get { return self._errorMessage ?? defaultErrorMessage }
+        set { self._errorMessage = newValue }
+    }; private var _errorMessage: String?
+    internal var defaultErrorMessage: String {
         return "Does not meet requirements"
     }
     

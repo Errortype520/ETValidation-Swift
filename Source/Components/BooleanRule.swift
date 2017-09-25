@@ -29,7 +29,12 @@ open class BooleanRule: RuleProtocol {
     // MARK: - Properties
     
     public var requiredBool: Bool
+    
     public var errorMessage: String {
+        get { return self._errorMessage ?? defaultErrorMessage }
+        set { self._errorMessage = newValue }
+    }; private var _errorMessage: String?
+    private var defaultErrorMessage: String {
         return "Must be \(requiredBool)"
     }
     

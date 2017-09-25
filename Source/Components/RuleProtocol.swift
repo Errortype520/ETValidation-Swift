@@ -26,7 +26,7 @@ import Foundation
 
 public protocol RuleProtocol {
     
-    var errorMessage: String { get }
+    var errorMessage: String { get set }
     
     func validate(against: String) -> Bool
 }

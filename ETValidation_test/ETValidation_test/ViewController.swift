@@ -109,6 +109,14 @@ class ViewController: UIViewController {
         
         validate("Text: [One, One]")
         
+        testLabel2.text = "Three"
+        
+        validate("Text: [One, Three]")
+        
+        validator.removeRules(for: testLabel)
+        
+        validate("Text: [One, Three] - Removed Rule")
+        
         print("+------------------------------------------")
     }
     

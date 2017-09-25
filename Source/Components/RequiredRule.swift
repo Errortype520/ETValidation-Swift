@@ -32,7 +32,7 @@ open class RequiredRule: MinLengthRule {
         set { }
     }
     
-    override public var errorMessage: String {
+    internal override var defaultErrorMessage: String {
         return "This is a required field"
     }
     
