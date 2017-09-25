@@ -114,6 +114,7 @@ class ViewController: UIViewController {
         validate("Text: [One, Three]")
         
         validator.removeRules(for: testLabel)
+        validator.removeRules(for: testLabel) // Test removing control that is no longer there
         
         validate("Text: [One, Three] - Removed Rule")
         
