@@ -35,6 +35,10 @@ extension Validator {
         }
     }
     
+    public func addRules( for control: AnyValidationProtocol, with rules: RuleProtocol...) {
+        self.addRules(for: control, with: rules)
+    }
+    
     public func addRules( for control: AnyValidationProtocol, with rules: [RuleProtocol] ) {
         self.items.append(ValidatorItem(control: control, rules: rules))
     }
