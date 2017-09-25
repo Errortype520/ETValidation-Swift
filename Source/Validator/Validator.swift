@@ -21,6 +21,8 @@ fileprivate struct ValidatorItem {
 open class Validator {
     
     fileprivate var items: [ValidatorItem] = []
+    
+    public init() { }
 }
 
 // MARK: Add / Remove Validators
