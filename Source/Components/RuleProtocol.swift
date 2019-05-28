@@ -24,9 +24,22 @@
 
 import Foundation
 
-public protocol RuleProtocol {
+public protocol RuleProtocol: class {
     
     var errorMessage: String { get set }
     
+    var shouldIgnoreSoftValidation: Bool { get set }
+    
     func validate(against: String) -> Bool
+}
+
+
+extension RuleProtocol {
+    
+    public func configure(ignoresSoftValidation: Bool) -> Self {
+        
+        self.shouldIgnoreSoftValidation = ignoresSoftValidation
+        
+        return self
+    }
 }

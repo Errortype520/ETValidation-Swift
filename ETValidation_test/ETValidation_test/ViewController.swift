@@ -70,12 +70,15 @@ class ViewController: UIViewController {
     // MARK: - Individual Component Validation
     
     func testValidation() {
+        
         self.testComponentCharLimit()
         self.testComponentRegex()
         self.testComponentEmail()
         self.testComponentPassword()
         self.testComponentBoolean()
         self.testComponentMatch()
+        
+        self.testSoftValidation()
     }
     
     func testComponentMatch() {
@@ -235,7 +238,7 @@ class ViewController: UIViewController {
         
         let validator = Validator()
         let rule = RegexRule(pattern: "[a-zA-Z]+")
-        validator.addRules(for: testLabel, with: [rule])
+        validator.addRules(for: testLabel, with: rule)
 
         print("+------------------------------------------")
         print(" Regex ([a-zA-Z]+)")
@@ -265,6 +268,44 @@ class ViewController: UIViewController {
         print("+------------------------------------------")
     }
     
+    func testSoftValidation() {
+        
+        let testLabel:UILabel = UILabel(frame: CGRect.zero)
+        
+        let validator = Validator()
+        var minRule = RequiredRule().configure(ignoresSoftValidation: true)
+        
+        minRule.errorMessage = "This test failed hard validation, but should pass soft validation"
+        
+        validator.addRules(for: testLabel, with: minRule)
+        
+        
+        print("+------------------------------------------")
+        print(" Soft Validation")
+        print("+------------------------------------------")
+        
+        func validate(_ test:String, soft: Bool) {
+            let complete: (ValidationResult) -> Void = { result in
+                switch result {
+                case .success:          print(test + "  |  Validated: YES")
+                case .failure(let x):   print(test + "  |  Validated: NO")
+                                        switch x.first! {
+                                        case .failed(_, let y): print(y)
+                                        case .none: break
+                                        }
+                }
+            }
+            validator.validate(soft: soft, complete: complete)
+        }
+        
+        testLabel.text = ""
+        
+        validate("Soft: ", soft: true)
+        validate("Hard: ", soft: false)
+        
+        print("+------------------------------------------")
+    }
+    
     func testComponentCharLimit() {
 
         let testLabel:UILabel = UILabel(frame: CGRect.zero)
@@ -272,7 +313,9 @@ class ViewController: UIViewController {
         let validator = Validator()
         let minRule = RequiredRule()
         let maxRule = MaxLengthRule(requiredLength: 10)
+        minRule.errorMessage = "This is a required field error message test."
         validator.addRules(for: testLabel, with: [minRule, maxRule])
+        
         
         print("+------------------------------------------")
         print(" Character Limit")
@@ -281,8 +324,8 @@ class ViewController: UIViewController {
         func validate(_ test:String) {
             validator.validate() { result in
                 switch result {
-                case .success: print(test + "  |  Validated: YES")
-                case .failure: print(test + "  |  Validated: NO")
+                case .success:  print(test + "  |  Validated: YES")
+                case .failure:  print(test + "  |  Validated: NO")
                 }
             }
         }

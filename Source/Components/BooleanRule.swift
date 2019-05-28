@@ -30,10 +30,10 @@ open class BooleanRule: RuleProtocol {
     
     public var requiredBool: Bool
     
-    public var errorMessage: String {
-        get { return self._errorMessage ?? defaultErrorMessage }
-        set { self._errorMessage = newValue }
-    }; private var _errorMessage: String?
+    public var shouldIgnoreSoftValidation: Bool = false
+    
+    public lazy var errorMessage: String = { return self.defaultErrorMessage }()
+    
     private var defaultErrorMessage: String {
         return "Must be \(requiredBool)"
     }

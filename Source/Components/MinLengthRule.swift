@@ -29,10 +29,10 @@ open class MinLengthRule: RuleProtocol {
     // MARK: - Properties
     public var requiredLength: Int = 0
     
-    public var errorMessage: String {
-        get { return self._errorMessage ?? defaultErrorMessage }
-        set { self._errorMessage = newValue }
-    }; private var _errorMessage: String?
+    public var shouldIgnoreSoftValidation: Bool = false
+    
+    public lazy var errorMessage: String = { return self.defaultErrorMessage }()
+    
     internal var defaultErrorMessage: String {
         return "Must be at least \(self.requiredLength) characters"
     }

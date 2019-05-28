@@ -48,13 +48,16 @@ extension Validator {
 
 extension Validator {
     
-    public func validate( complete: (ValidationResult) -> Void ) {
+    public func validate(soft: Bool = false, complete: (ValidationResult) -> Void ) {
         
         var errors: [ValidationError] = []
         
         for item in self.items {
             let value = item.control.validationValue
             for rule in item.rules {
+                
+                if soft && rule.shouldIgnoreSoftValidation { continue }
+                
                 let didValidate = rule.validate(against: value)
                 if !didValidate {
                     let error = ValidationError.failed(control: item.control, reason: rule.errorMessage)
