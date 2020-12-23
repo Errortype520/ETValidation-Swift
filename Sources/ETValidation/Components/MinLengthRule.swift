@@ -41,7 +41,7 @@ open class MinLengthRule: RuleProtocol {
         self.requiredLength = requiredLength
     }
     
-    public func validate(against: String) -> Bool {
+    open public func validate(against: String) -> Bool {
         return against.count >= self.requiredLength
     }
 }

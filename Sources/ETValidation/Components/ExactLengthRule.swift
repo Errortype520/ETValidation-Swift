@@ -38,7 +38,7 @@ open class ExactLengthRule: RuleProtocol {
         self.init(requiredLengths: requiredLengths)
     }
     
-    public func validate(against: String) -> Bool {
+    open public func validate(against: String) -> Bool {
         
         guard self.requiredLengths.count > 0 else { return true }
         

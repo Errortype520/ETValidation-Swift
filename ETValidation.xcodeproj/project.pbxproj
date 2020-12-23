@@ -90,11 +90,11 @@
 		D803ADFC251A474C004D5F4E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D803AE01251A474C004D5F4E /* RuleProtocol.swift */,
 				D803ADFD251A474C004D5F4E /* PasswordRule.swift */,
 				D803ADFE251A474C004D5F4E /* BooleanRule.swift */,
 				D803ADFF251A474C004D5F4E /* MinLengthRule.swift */,
 				D803AE00251A474C004D5F4E /* MaxLengthRule.swift */,
-				D803AE01251A474C004D5F4E /* RuleProtocol.swift */,
 				D803AE02251A474C004D5F4E /* RegexRule.swift */,
 				D803AE03251A474C004D5F4E /* EmailRule.swift */,
 				D803AE04251A474C004D5F4E /* RequiredRule.swift */,

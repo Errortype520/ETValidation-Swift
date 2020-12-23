@@ -44,7 +44,7 @@ open class MatchRule: RuleProtocol {
         self.matchControl = match
     }
     
-    public func validate(against: String) -> Bool {
+    open public func validate(against: String) -> Bool {
         return self.matchControl?.validationValue == against
     }
 }
