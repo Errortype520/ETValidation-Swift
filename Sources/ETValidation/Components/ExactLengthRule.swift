@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ExactLengthRule: RuleProtocol {
+open class ExactLengthRule: RuleProtocol {
     
     // MARK: - Properties
     public var requiredLengths: [Int] = [0]
