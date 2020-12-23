@@ -57,6 +57,7 @@
 		D803AE07251A474C004D5F4E /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationProtocol.swift; sourceTree = "<group>"; };
 		D803AE09251A474C004D5F4E /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		D803AE0B251A474C004D5F4E /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		D867C30E25939F5F006CD71A /* ExactLengthRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExactLengthRule.swift; sourceTree = "<group>"; };
 		"ETValidation::ETValidation::Product" /* ETValidation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ETValidation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"ETValidation::ETValidationTests::Product" /* ETValidationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = ETValidationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_12 /* ETValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETValidationTests.swift; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 				D803AE03251A474C004D5F4E /* EmailRule.swift */,
 				D803AE04251A474C004D5F4E /* RequiredRule.swift */,
 				D803AE05251A474C004D5F4E /* MatchRule.swift */,
+				D867C30E25939F5F006CD71A /* ExactLengthRule.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -153,7 +155,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -164,7 +166,6 @@
 				OBJ_18 /* ETValidation */,
 				OBJ_19 /* README.md */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -253,7 +254,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

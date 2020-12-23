@@ -72,6 +72,7 @@ class ViewController: UIViewController {
     func testValidation() {
         
         self.testComponentCharLimit()
+        self.testComponentCharLimit2()
         self.testComponentRegex()
         self.testComponentEmail()
         self.testComponentPassword()
@@ -273,7 +274,7 @@ class ViewController: UIViewController {
         let testLabel:UILabel = UILabel(frame: CGRect.zero)
         
         let validator = Validator()
-        var minRule = RequiredRule().configure(ignoresSoftValidation: true)
+        let minRule = RequiredRule().configure(ignoresSoftValidation: true)
         
         minRule.errorMessage = "This test failed hard validation, but should pass soft validation"
         
@@ -344,6 +345,39 @@ class ViewController: UIViewController {
 
         print("+------------------------------------------")
         
+    }
+    
+    func testComponentCharLimit2() {
+        
+        let testLabel:UILabel = UILabel(frame: CGRect.zero)
+        
+        let validator = Validator()
+        let exactRule = ExactLengthRule(requiredLengths: 2,4,6 )
+        validator.addRules(for: testLabel, with: exactRule)
+        
+        
+        print("+------------------------------------------")
+        print(" Character Limit (Exact Length 2, 4 or 6)")
+        print("+------------------------------------------")
+        
+        func validate(_ test:String) {
+            validator.validate() { result in
+                switch result {
+                case .success:  print(test + "  |  Validated: YES")
+                case .failure:  print(test + "  |  Validated: NO")
+                }
+            }
+        }
+        
+        testLabel.text = "odd"
+        
+        validate("Text: 3 Chars")
+        
+        testLabel.text = "even"
+        
+        validate("Text: 4 chars")
+
+        print("+------------------------------------------")
     }
 }
 
