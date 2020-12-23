@@ -41,7 +41,7 @@ open class MaxLengthRule: RuleProtocol {
         self.requiredLength = requiredLength
     }
     
-    open public func validate(against: String) -> Bool {
+    open func validate(against: String) -> Bool {
         return against.count <= self.requiredLength
     }
 }

@@ -42,7 +42,7 @@ open class RegexRule: RuleProtocol {
         self.pattern = pattern
     }
     
-    open public func validate(against: String) -> Bool {
+    open func validate(against: String) -> Bool {
         
         // Create the NSPredicate
         let regex:NSPredicate = NSPredicate(format: "SELF MATCHES %@", self.pattern)

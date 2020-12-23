@@ -42,7 +42,7 @@ open class BooleanRule: RuleProtocol {
         self.requiredBool = requiredValue
     }
     
-    open public func validate(against: String) -> Bool {
+    open func validate(against: String) -> Bool {
         let against: Bool = !against.isEmpty
         
         return self.requiredBool == against
